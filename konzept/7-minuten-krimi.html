@@ -1,0 +1,425 @@
+<title>Der 7-Minuten-Fall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+  :root{
+    --ground:#EDEEF1; --surface:#FFFFFF; --surface-2:#F5F6F8;
+    --ink:#14181F; --ink-2:#5A626E; --ink-3:#858D99;
+    --rule:#D2D6DD; --rule-strong:#B4BAC4;
+    --accent:#1F3D6B; --accent-soft:#E3E9F3;
+    --signal:#A81F27; --signal-soft:#F6E4E5;
+    --ok:#1F5C46; --ok-soft:#E0EDE8;
+    --display:"Antonio","Oswald","Arial Narrow",sans-serif;
+    --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+    --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0E1116; --surface:#161A21; --surface-2:#1C212A;
+      --ink:#E5E8ED; --ink-2:#98A1AE; --ink-3:#6C7684;
+      --rule:#272D37; --rule-strong:#3A424E;
+      --accent:#87A9DE; --accent-soft:#1B2634;
+      --signal:#E1666D; --signal-soft:#2E1A1C;
+      --ok:#6FBFA0; --ok-soft:#152722;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0E1116; --surface:#161A21; --surface-2:#1C212A;
+    --ink:#E5E8ED; --ink-2:#98A1AE; --ink-3:#6C7684;
+    --rule:#272D37; --rule-strong:#3A424E;
+    --accent:#87A9DE; --accent-soft:#1B2634;
+    --signal:#E1666D; --signal-soft:#2E1A1C;
+    --ok:#6FBFA0; --ok-soft:#152722;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--body); font-size:17px; line-height:1.65;
+    margin:0; padding:0;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px 96px}
+
+  /* ---------- shared type ---------- */
+  h1,h2,h3{font-family:var(--display); font-weight:700; text-wrap:balance; margin:0; line-height:1.05}
+  h1{font-size:clamp(46px,8.5vw,88px); letter-spacing:-0.01em; text-transform:uppercase}
+  h2{font-size:clamp(28px,4.4vw,40px); text-transform:uppercase; letter-spacing:0.005em}
+  h3{font-size:20px; letter-spacing:0.01em; font-family:var(--body); font-weight:600; line-height:1.3}
+  p{margin:0}
+  a{color:var(--accent)}
+  .eyebrow{
+    font-family:var(--mono); font-size:11px; font-weight:500;
+    letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-3);
+  }
+  .lede{font-size:20px; line-height:1.55; color:var(--ink-2); max-width:64ch}
+  .note{font-size:15px; color:var(--ink-2)}
+  .tc{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12px; letter-spacing:0.02em}
+
+  /* ---------- header ---------- */
+  header{padding:72px 0 40px; border-bottom:2px solid var(--ink); display:flex; flex-direction:column; gap:20px}
+  .hgrid{display:flex; flex-direction:column; gap:14px}
+  .stats{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:10px;
+  }
+  .stat{background:var(--surface); padding:14px 16px; display:flex; flex-direction:column; gap:2px}
+  .stat b{font-family:var(--display); font-size:32px; font-weight:600; line-height:1; letter-spacing:0.01em}
+  .stat span{font-family:var(--mono); font-size:10.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-3)}
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0; border-bottom:1px solid var(--rule); display:flex; flex-direction:column; gap:24px}
+  section:last-of-type{border-bottom:none}
+  .shead{display:flex; flex-direction:column; gap:8px}
+
+  /* ---------- matrix ---------- */
+  .scroller{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+  table{border-collapse:collapse; width:100%; min-width:560px; font-size:15px}
+  th,td{padding:13px 16px; text-align:left; border-bottom:1px solid var(--rule)}
+  thead th{
+    font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:0.13em;
+    text-transform:uppercase; color:var(--ink-3); background:var(--surface-2);
+    border-bottom:1px solid var(--rule-strong);
+  }
+  tbody tr:last-child td{border-bottom:none}
+  tr.culprit td{background:var(--signal-soft)}
+  tr.culprit td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
+  .mark{font-family:var(--mono); font-weight:700; font-size:15px}
+  .mark.yes{color:var(--ok)}
+  .mark.no{color:var(--ink-3)}
+  .mark.hidden{color:var(--signal)}
+  td .who{font-weight:600}
+  td .role{display:block; font-size:13px; color:var(--ink-2); line-height:1.4}
+
+  /* ---------- timeline strip ---------- */
+  .strip{display:flex; width:100%; height:60px; border:1px solid var(--rule-strong); background:var(--surface); overflow:hidden}
+  .seg{
+    position:relative; display:flex; align-items:flex-end; padding:6px 7px;
+    border-right:1px solid var(--rule); min-width:0; overflow:hidden;
+  }
+  .seg:last-child{border-right:none}
+  .seg span{
+    font-family:var(--mono); font-size:9.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--ink-2); white-space:nowrap;
+  }
+  .seg.setup{background:var(--surface)}
+  .seg.evidence{background:var(--accent-soft)}
+  .seg.cut{background:var(--signal); }
+  .seg.cut span{color:#fff}
+  .seg.reveal{background:var(--surface-2)}
+  .ruler{display:flex; justify-content:space-between; color:var(--ink-3)}
+
+  /* ---------- beats ---------- */
+  .beats{display:flex; flex-direction:column; border:1px solid var(--rule); background:var(--surface)}
+  .beat{display:grid; grid-template-columns:106px 1fr; gap:0; border-bottom:1px solid var(--rule)}
+  .beat:last-child{border-bottom:none}
+  .beat-tc{
+    padding:16px; border-right:1px solid var(--rule); background:var(--surface-2);
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .beat-tc .dur{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:0.06em}
+  .beat-body{padding:16px 18px; display:flex; flex-direction:column; gap:6px}
+  .beat-body p{font-size:15.5px; color:var(--ink-2); line-height:1.55}
+  .beat.is-cut .beat-tc{background:var(--signal-soft)}
+  .beat.is-cut h3{color:var(--signal)}
+
+  /* ---------- rules list ---------- */
+  ol.rules{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule); counter-reset:r}
+  ol.rules li{
+    background:var(--surface); padding:16px 18px; display:grid;
+    grid-template-columns:32px 1fr; gap:14px; counter-increment:r;
+  }
+  ol.rules li::before{
+    content:"R" counter(r); font-family:var(--mono); font-size:11px; font-weight:700;
+    letter-spacing:0.06em; color:var(--signal); padding-top:4px;
+  }
+  ol.rules b{font-weight:600; display:block; margin-bottom:2px}
+  ol.rules p{font-size:15.5px; color:var(--ink-2); line-height:1.55}
+
+  /* ---------- tool tiers ---------- */
+  .tier{display:flex; flex-direction:column; gap:14px}
+  .tier-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; padding-bottom:8px; border-bottom:1px solid var(--rule-strong)}
+  .tier-head h3{font-family:var(--display); font-weight:600; font-size:23px; text-transform:uppercase; letter-spacing:0.01em}
+  .tools{display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+  .tool{background:var(--surface); padding:15px 18px; display:flex; flex-direction:column; gap:5px}
+  .tool-top{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .tool-name{font-family:var(--mono); font-size:14px; font-weight:700; letter-spacing:-0.01em}
+  .tool p{font-size:15px; color:var(--ink-2); line-height:1.55}
+  .chip{
+    font-family:var(--mono); font-size:9.5px; font-weight:500; letter-spacing:0.11em; text-transform:uppercase;
+    padding:3px 7px; border:1px solid currentColor; white-space:nowrap;
+  }
+  .chip.on{color:var(--ok); background:var(--ok-soft)}
+  .chip.off{color:var(--accent); background:var(--accent-soft)}
+  .chip.new{color:var(--signal); background:var(--signal-soft)}
+  .kind{font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3)}
+
+  /* ---------- callout ---------- */
+  .callout{border-left:3px solid var(--signal); background:var(--surface); padding:18px 22px; display:flex; flex-direction:column; gap:8px}
+  .callout p{font-size:16px; color:var(--ink-2)}
+  .callout b{color:var(--ink)}
+
+  /* ---------- next steps ---------- */
+  .steps{display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+  .step{background:var(--surface); padding:15px 18px; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:baseline}
+  .step .n{font-family:var(--mono); font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.06em}
+  .step p{font-size:15.5px; color:var(--ink-2); line-height:1.55}
+  .step b{color:var(--ink); font-weight:600}
+
+  footer{padding:40px 0 0; border-top:1px solid var(--rule); color:var(--ink-3); font-size:14px}
+
+  @media (max-width:620px){
+    body{font-size:16px}
+    .beat{grid-template-columns:1fr}
+    .beat-tc{border-right:none; border-bottom:1px solid var(--rule); flex-direction:row; gap:12px; align-items:baseline}
+    .seg span{display:none}
+    .strip{height:44px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    a,.chip{transition:color .15s ease, background-color .15s ease}
+  }
+  :focus-visible{outline:2px solid var(--signal); outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="hgrid">
+    <p class="eyebrow">Format-Konzept · Mitrate-Krimi</p>
+    <h1>Der<br>7-Minuten-Fall</h1>
+    <p class="lede">Ein Kurzkrimi, der als Rätsel funktioniert: Der Zuschauer bekommt jede Information, die er zur Lösung braucht — und muss sie sich selbst zusammensetzen, bevor bei 5:30 der Schnitt kommt.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>420</b><span>Sekunden</span></div>
+    <div class="stat"><b>3</b><span>Verdächtige</span></div>
+    <div class="stat"><b>3</b><span>Beweisketten</span></div>
+    <div class="stat"><b>1</b><span>Roter Hering</span></div>
+    <div class="stat"><b>1</b><span>Schlussfolgerung</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">01 · Das Prinzip</p>
+    <h2>Die Zwei-von-Drei-Matrix</h2>
+  </div>
+  <p class="lede">Der schwierigste Teil ist nicht die Produktion, sondern die Fairness: lösbar, aber nicht offensichtlich. Dafür braucht das Format eine mechanische Regel statt Bauchgefühl.</p>
+  <p>Jeder Verdächtige wird an genau drei Achsen gemessen — <b>Motiv</b>, <b>Gelegenheit</b>, <b>Spur</b>. Der Täter erfüllt alle drei. Jeder Unschuldige erfüllt exakt zwei. Das erzeugt automatisch echte Verdächtige statt Statisten, und es macht die Lösung eindeutig, ohne sie zu verschenken.</p>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr><th>Verdächtige:r</th><th>Motiv</th><th>Gelegenheit</th><th>Spur</th><th>Auflösung</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="who">A</span><span class="role">Die Geschäftspartnerin</span></td>
+          <td><span class="mark yes">JA</span></td>
+          <td><span class="mark yes">JA</span></td>
+          <td><span class="mark no">NEIN</span></td>
+          <td class="note">Scheidet aus — keine physische Spur</td>
+        </tr>
+        <tr>
+          <td><span class="who">B</span><span class="role">Der Nachbar · roter Hering</span></td>
+          <td><span class="mark yes">JA</span></td>
+          <td><span class="mark no">NEIN</span></td>
+          <td><span class="mark yes">JA</span></td>
+          <td class="note">Wirkt am lautesten schuldig — kam aber nicht rein</td>
+        </tr>
+        <tr class="culprit">
+          <td><span class="who">C</span><span class="role">Die Schwester · Täterin</span></td>
+          <td><span class="mark yes">JA</span></td>
+          <td><span class="mark hidden">VERSTECKT</span></td>
+          <td><span class="mark yes">JA</span></td>
+          <td class="note">Alle drei — die mittlere Zelle ist das Rätsel</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <p><b>Der eine Trick, auf dem alles steht:</b> Genau eine Zelle der Matrix wird nie direkt gezeigt. Sie muss aus zwei Fakten geschlossen werden, die im Film weit auseinander liegen — etwa einer beiläufigen Zeitangabe in Minute 2 und einem Detail am Tatort in Minute 4. Diese eine Zelle <em>ist</em> das Rätsel. Alles andere ist Kulisse, die es verdeckt.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">02 · Der Minutenplan</p>
+    <h2>420 Sekunden</h2>
+  </div>
+  <p class="lede">Die Breite jedes Blocks entspricht seiner echten Dauer. Über die Hälfte der Laufzeit gehört der Beweisführung — das ist der Unterschied zwischen einem Rätsel und einer Anekdote.</p>
+
+  <div class="strip" role="img" aria-label="Zeitleiste über 7 Minuten: Fund 35s, Frage 35s, Verdächtige 120s, Tatort 80s, Riss 60s, Cut 30s, Auflösung 45s, Haken 15s.">
+    <div class="seg setup"   style="flex:35"><span>Fund</span></div>
+    <div class="seg setup"   style="flex:35"><span>Frage</span></div>
+    <div class="seg evidence" style="flex:120"><span>Verdächtige</span></div>
+    <div class="seg evidence" style="flex:80"><span>Tatort</span></div>
+    <div class="seg evidence" style="flex:60"><span>Riss</span></div>
+    <div class="seg cut"     style="flex:30"><span>Cut</span></div>
+    <div class="seg reveal"  style="flex:45"><span>Auflösung</span></div>
+    <div class="seg reveal"  style="flex:15"><span></span></div>
+  </div>
+  <div class="ruler tc"><span>0:00</span><span>3:30</span><span>7:00</span></div>
+
+  <div class="beats">
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">0:00–0:35</span><span class="dur">35 SEK</span></div>
+      <div class="beat-body"><h3>Der Fund</h3><p>Kalt einsteigen, kein Kontext. Ein Bild, ein Geräusch, ein Satz. Wer hier erklärt, hat schon verloren.</p></div>
+    </div>
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">0:35–1:10</span><span class="dur">35 SEK</span></div>
+      <div class="beat-body"><h3>Die Frage</h3><p>Die Aufgabe wird wörtlich gestellt — „Wer hat die Tür von innen verriegelt?“ — plus das Versprechen: <em>Alles, was du brauchst, wird gezeigt.</em> Dieses Versprechen ist der Vertrag mit dem Publikum.</p></div>
+    </div>
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">1:10–3:10</span><span class="dur">120 SEK</span></div>
+      <div class="beat-body"><h3>Drei Verdächtige</h3><p>40 Sekunden pro Person: Name, Motiv, Alibi. Jeder Block versteckt genau einen Hinweis in einem Nebensatz oder Bilddetail. Nie mehr als drei Verdächtige — bei vieren rät der Zuschauer nur noch.</p></div>
+    </div>
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">3:10–4:30</span><span class="dur">80 SEK</span></div>
+      <div class="beat-body"><h3>Der Tatort</h3><p>Die physischen Beweise. Hier liegt die zweite Hälfte der versteckten Matrix-Zelle — sichtbar, aber unkommentiert. Die Kamera zeigt sie, der Sprecher erwähnt sie nicht.</p></div>
+    </div>
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">4:30–5:30</span><span class="dur">60 SEK</span></div>
+      <div class="beat-body"><h3>Der Riss</h3><p>Ein Alibi bricht. Der rote Hering erreicht seinen Höhepunkt — und wird im selben Atemzug widerlegbar gemacht. Wer aufgepasst hat, weiß jetzt Bescheid.</p></div>
+    </div>
+    <div class="beat is-cut">
+      <div class="beat-tc"><span class="tc">5:30–6:00</span><span class="dur">30 SEK</span></div>
+      <div class="beat-body"><h3>Der Cut</h3><p>Standbild, Countdown, die drei Gesichter nebeneinander. Ab hier kommt keine neue Information mehr — das ist die härteste Regel des Formats. Hier fällt die Abstimmung.</p></div>
+    </div>
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">6:00–6:45</span><span class="dur">45 SEK</span></div>
+      <div class="beat-body"><h3>Die Auflösung</h3><p>Nicht erzählen, sondern <em>zurückspulen</em>: die drei Hinweise in der Reihenfolge, in der sie zu sehen waren, mit Timecode eingeblendet. Der Zuschauer soll sich ärgern, nicht belehrt fühlen.</p></div>
+    </div>
+    <div class="beat">
+      <div class="beat-tc"><span class="tc">6:45–7:00</span><span class="dur">15 SEK</span></div>
+      <div class="beat-body"><h3>Der Haken</h3><p>Ein Detail, das niemand bemerkt hat — und der nächste Fall. 15 Sekunden, die aus einem Video eine Serie machen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">03 · Fair Play</p>
+    <h2>Fünf harte Regeln</h2>
+  </div>
+  <p class="lede">Ein Mitrate-Krimi verliert sein Publikum nicht an Langeweile, sondern an Unfairness. Ein einziger nachgereichter Hinweis, und die Kommentare drehen sich nur noch darum.</p>
+  <ol class="rules">
+    <li><div><b>Nichts nach dem Cut.</b><p>Jeder Hinweis, der zur Lösung nötig ist, war vor 5:30 zu sehen oder zu hören. Keine Ausnahme, auch keine kleine.</p></div></li>
+    <li><div><b>Der Täter bekommt Bühne.</b><p>Mindestens 90 Sekunden Screentime vor dem Cut. Ein Täter, der kaum vorkam, ist keine Auflösung, sondern ein Taschenspielertrick.</p></div></li>
+    <li><div><b>Zwei von drei, immer.</b><p>Jeder Unschuldige erfüllt exakt zwei der drei Achsen. Wer nur eine erfüllt, ist Statist und verschwendet 40 Sekunden Laufzeit.</p></div></li>
+    <li><div><b>Ein roter Hering, nicht zwei.</b><p>Und er muss durch einen gezeigten Hinweis widerlegbar sein. Zwei Fährten in sieben Minuten fühlen sich nicht clever an, sondern beliebig.</p></div></li>
+    <li><div><b>Ein Schluss, keine Kette.</b><p>Die Lösung braucht genau eine Verknüpfung von zwei Fakten. Für dreistufige Deduktion hat niemand beim Zuschauen Zeit — das ist Lesestoff, kein Video.</p></div></li>
+  </ol>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">04 · Ausrüstung</p>
+    <h2>Der Werkzeug-Stack</h2>
+  </div>
+  <p class="lede">Geprüft gegen das, was in dieser Umgebung tatsächlich vorhanden ist — nicht gegen einen Wunschzettel. Der Status hinter jedem Eintrag ist der reale Verbindungsstatus.</p>
+
+  <div class="tier">
+    <div class="tier-head">
+      <h3>Stufe 1 — sofort nutzbar</h3>
+      <span class="kind">bereits aktiv</span>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">skill-creator</span><span class="chip on">aktiv</span><span class="kind">Skill</span></div>
+        <p>Der wichtigste Hebel im ganzen Stack. Damit baust du einen eigenen Skill <span class="tc">krimi-7min</span>, der Minutenplan, Zwei-von-Drei-Matrix und die fünf Regeln fest verdrahtet. Ohne ihn erklärst du das Format bei jeder Folge neu — und jede Folge driftet ein Stück weiter ab. Der Skill kann außerdem gegen Testfälle evaluiert werden: Hält die Matrix? Ist der Fall lösbar?</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Artifacts + artifact-capabilities</span><span class="chip on">aktiv</span><span class="kind">Skill</span></div>
+        <p>Die beste native Antwort auf „Zuschauer ermitteln“: eine veröffentlichte Seite mit geteiltem Zustand, auf der abgestimmt wird und alle die Live-Verteilung sehen. A 34 % / B 51 % / C 15 % — und der rote Hering führt sichtbar. Das ist die Mechanik, die aus Zuschauen Mitspielen macht, und sie kostet keinen externen Dienst.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Notion</span><span class="chip on">aktiv</span><span class="kind">Konnektor</span></div>
+        <p>Die Fall-Datenbank: eine Zeile pro Folge mit Täter, drei Verdächtigen, drei Hinweisen, rotem Hering und — nach Veröffentlichung — der Auflösungsquote. Verhindert doppelte Motive über Folgen hinweg und zeigt dir nach zehn Fällen, welcher Rätseltyp bei deinem Publikum funktioniert.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">docx</span><span class="chip on">aktiv</span><span class="kind">Skill</span></div>
+        <p>Das Drehbuch als Word-Datei mit Timecode-Spalte — das Format, in dem Sprecher und Kamera tatsächlich arbeiten.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Google Drive</span><span class="chip on">aktiv</span><span class="kind">Konnektor</span></div>
+        <p>Ablage für Schnittfassungen, Sprachaufnahmen und Footage. Unspektakulär, aber ab Folge drei der Unterschied zwischen Archiv und Chaos.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">pptx</span><span class="chip on">aktiv</span><span class="kind">Skill</span></div>
+        <p>Storyboard und Verdächtigen-Karten als Folien — schnell genug, um einen Fall vor der Produktion durchzuspielen und zu merken, dass er zu leicht ist.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <div class="tier-head">
+      <h3>Stufe 2 — nur einschalten</h3>
+      <span class="kind">verbunden, in diesem Chat aus</span>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Tavily</span><span class="chip off">einschalten</span><span class="kind">Konnektor</span></div>
+        <p>Web-Recherche für die Details, an denen Kommentare sich festbeißen: Ermittlungsabläufe, Zeitfenster, was ein Schloss wirklich hergibt. Ein Fall, dessen Forensik nicht standhält, verliert genau das Publikum, das miträtselt. In den Konnektor-Einstellungen dieses Chats aktivierbar.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Linear</span><span class="chip off">einschalten</span><span class="kind">Konnektor</span></div>
+        <p>Nur relevant, wenn es eine Serie mit festem Takt wird: Fall → Buch → Dreh → Schnitt → Upload als Pipeline. Bei Einzelstücken übertrieben.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <div class="tier-head">
+      <h3>Stufe 3 — lohnt sich zu verbinden</h3>
+      <span class="kind">noch nicht installiert</span>
+    </div>
+    <div class="tools">
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Descript</span><span class="chip new">verbinden</span><span class="kind">Konnektor</span></div>
+        <p>Import, Schnitt und Videoerzeugung per Anweisung. Der naheliegendste Partner für ein Format, dessen Beats auf die Sekunde sitzen müssen — und für die vertikale 60-Sekunden-Teaserfassung aus demselben Material.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">HyperFrames by HeyGen</span><span class="chip new">verbinden</span><span class="kind">Konnektor</span></div>
+        <p>Rendert animierte Grafiken aus HTML. Genau das, was dieses Format braucht: die Beweistafel, die Zeitleiste der Alibis und der 10-Sekunden-Countdown beim Cut — als Motion-Grafik statt als Standbild.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Canva</span><span class="chip new">verbinden</span><span class="kind">Konnektor / Plugin</span></div>
+        <p>Verdächtigen-Karten, Hinweis-Grafiken und Thumbnails — per Bulk-Create drei Karten pro Folge aus einer Vorlage. Das Thumbnail entscheidet bei diesem Format überproportional, weil „Wer war es?“ die halbe Klickentscheidung ist.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">ElevenLabs</span><span class="chip new">verbinden</span><span class="kind">Konnektor</span></div>
+        <p>Wichtige Einschränkung: Dieser Konnektor steuert <em>Sprach-Agenten</em>, nicht einfache Sprecher-Vertonung. Genau das ist aber die interessantere Nutzung — ein Agent pro Verdächtigem, den das Publikum zwischen zwei Folgen selbst verhören kann. Für reine Off-Stimme im Video ist er das falsche Werkzeug.</p>
+      </div>
+      <div class="tool">
+        <div class="tool-top"><span class="tool-name">Adobe for Creativity</span><span class="chip new">verbinden</span><span class="kind">Plugin</span></div>
+        <p>Quick-Cut und Formatanpassung für Videos und Bilder in einem Rutsch — sinnvoll, sobald jede Folge in mehreren Seitenverhältnissen ausgespielt wird. Alternative zu Descript, kein Zusatz.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><b>Wenn du nur fünf Dinge einrichtest:</b> skill-creator für das Format, Notion für die Falldatenbank, ein Voting-Artifact für die Zuschauerabstimmung, Descript für den Schnitt und Canva für Karten und Thumbnail. Alles andere ist Komfort.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">05 · Nächster Schritt</p>
+    <h2>Was ich zuerst bauen würde</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="n">01</span><p><b>Den Skill <span class="tc">krimi-7min</span>.</b> Minutenplan, Matrix und die fünf Regeln als ausführbare Anweisung — damit jeder weitere Fall in einem Prompt entsteht statt in einer Diskussion.</p></div>
+    <div class="step"><span class="n">02</span><p><b>Einen Pilotfall komplett durchschreiben.</b> Erst am fertigen Buch zeigt sich, ob die versteckte Matrix-Zelle trägt oder ob der Fall in Minute zwei schon gelöst ist.</p></div>
+    <div class="step"><span class="n">03</span><p><b>Die Abstimmungsseite als Artifact.</b> Drei Verdächtige, ein Klick, Live-Verteilung — der Teil, der aus Zuschauern Ermittler macht.</p></div>
+    <div class="step"><span class="n">04</span><p><b>Die Notion-Falldatenbank anlegen.</b> Zwei Minuten Arbeit, die ab Folge fünf verhindert, dass du dich wiederholst.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>Statusangaben geprüft gegen die in dieser Umgebung verbundenen Konnektoren, Skills und Plugins.</p>
+</footer>
+
+</div>

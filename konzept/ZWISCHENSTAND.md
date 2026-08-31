@@ -9,7 +9,7 @@ widerspricht, gilt dieses Dokument.
 | Punkt | Entscheidung |
 | --- | --- |
 | Form | Bühnenstück, kleine Bühne, wenige Zuschauer |
-| Dauer | max. 10 Minuten (Zielmarke ~9:30) |
+| Dauer | exakt 7:00 geplant, Limit 10 Minuten (3 Min. Puffer) |
 | Spieler | 7 |
 | Setting | Modernes Firmenevent |
 | Publikum | Ist Gast des Firmenevents — dadurch als Zeuge befragbar |
@@ -17,7 +17,7 @@ widerspricht, gilt dieses Dokument.
 | Ausgang | Festes Ende, keine Alternativfassungen |
 | Ermittler | Sherlock, tritt erst nach der Tat auf. Watson gestrichen. |
 | Opfer | Der Firmenchef |
-| Verdächtige | 4 |
+| Verdächtige | 4 — Ehefrau, Schwester, Kellnerin, Mitarbeiter |
 | Intrige | Mehrere Stränge gemischt |
 | Technik | Farbiges + dimmbares Licht, Blackout, Tonanlage — alles vorhanden |
 | Umbau | Läuft über Licht und Ton, keine echte Umbaupause nötig |
@@ -35,44 +35,47 @@ widerspricht, gilt dieses Dokument.
 
 Verdächtige sind damit: Ehefrau, Schwester, Kellnerin, Mitarbeiter.
 
-## Inzwischen entschieden (im Regiebuch ausgearbeitet)
+## Fassung 2 — Frame-up (aktuell)
 
-Siehe `regiebuch.html`. Diese vier Punkte waren offen und sind jetzt
-gesetzt — jeder einzeln austauschbar:
+Siehe `regiebuch.html`. Der Fall wurde auf Wunsch der Gruppe umgebaut:
 
-- **Täter:** der Mitarbeiter. Sein Motiv ist die versteckte Matrix-Zelle,
-  weil niemand seine Verbindung zur Kellnerin kennt.
-- **Siebte Rolle:** eine Polizistin (ersetzt den zuvor geplanten
-  Assistenten). Sie kommt mit dem Ermittler, empfängt drei
-  Handynachrichten aus dem Präsidium und gibt sie durch. Übernimmt die
-  Publikumsbrücke: nimmt Zuschaueraussagen auf und zählt die Abstimmung
-  aus. Die Begrüßung des Publikums übernimmt jetzt der Chef selbst — eine
-  Polizistin kann keine Gäste auf einem Fest empfangen, bei dem sie nicht
-  dabei ist.
-- **Tathergang:** vergiftetes Glas beim Sektempfang. Kein Blut,
-  bühnentauglich, rückt die Kellnerin ins Zentrum.
-- **Kellnerin/Chef:** sie geht auf den Flirt ein und bereut es. Damit hat
-  sie kein Mordmotiv und bleibt der rote Hering.
+- **Täterin:** die Schwester. Sie framet den Mitarbeiter.
+- **Spieldauer:** exakt 7:00 (420 s), damit 3 Minuten Puffer bleiben.
+- **Mord:** im Dunkeln, Tatwaffe ist das Tortenmesser.
+- **Die Falle:** Die Schwester bittet den Mitarbeiter, die Torte
+  anzuschneiden (Abdrücke auf der Waffe), stellt ihn dann für ein Foto
+  neben den Chef und ruft im selben Atemzug nach dem Licht-aus. Zwei
+  Bitten, auf einer Feier vollkommen normal.
+- **Sein Motiv ist echt**, nicht gestellt — das macht die Falle
+  glaubwürdig. Zwei Drittel arrangiert, ein Drittel wahr.
+- **Ihr Alibi:** keins. Sie braucht keins, sie hat einen Schuldigen.
+
+### Die Matrix ist ersetzt
+
+Die Zwei-von-Drei-Matrix galt für einen ehrlichen Whodunit. Bei einem
+Frame-up sieht der Geframte absichtlich nach 3/3 aus. Neue Fairness-Regel:
+
+> **Jeder Beweis gegen den Geframten muss vor den Augen des Publikums
+> entstanden sein.**
+
+Die Frage lautet damit nicht mehr „Wer war es?", sondern „Woher kommen
+die Beweise?".
 
 ### Die drei Nachrichten
 
-Jede Nachricht schließt genau einen Verdächtigen aus: Fingerabdrücke
-(Ehefrau raus), Videoaufzeichnung (Schwester raus), Zuordnung des dritten
-Abdrucks (ohne Namen — als Falle, die ins Leere geht).
+Ziehen die Schlinge um den Mitarbeiter und sind alle sachlich korrekt:
+Tatwaffe Tortenmesser → Abdrücke gehören ihm, keine weiteren → Foto um
+21:47 Uhr, er steht neben dem Opfer. **Die dritte nennt nie, wer das Foto
+aufgenommen hat.** Das ist die wichtigste Auslassung des Stücks.
 
-**Schutzregel:** Die Polizistin liefert ausschließlich objektive Befunde,
-niemals ein Motiv und niemals eine Beziehung. Sie schließt aus, sie
-schließt nie ein. Ein Satz wie „die beiden sind ein Paar" würde das
-gesamte Rätsel wertlos machen.
-
-### Zeitbudget gelöst
-
-Befragungen auf 40 Sekunden verdichtet (4 × 40 s), drei Nachrichten à
-15 s, Fest 95 s. Gesamt 9:35.
+Schutzregel: Die Polizistin liefert nur Befunde, niemals eine Deutung.
 
 ## Weiterhin offen
 
 - Namen der Figuren (bewusst offen gelassen — vergeben die Schüler)
-- Titel des Stücks („Ein Glas zu viel" ist ein Platzhalter)
+- Titel des Stücks („Das Tortenmesser" ist ein Arbeitstitel)
+- Weiß die Schwester von der Kellnerin und dem Mitarbeiter? (Annahme: ja —
+  deshalb wählt sie ihn)
+- Gesteht die Schwester am Ende, oder widerspricht sie nur nicht?
 - Praktisch: Probenzeit, Klassenstufe, Zuschauerzahl, Bewertungskriterien
   der Lehrkraft, Geschlechterverteilung der sieben Spieler

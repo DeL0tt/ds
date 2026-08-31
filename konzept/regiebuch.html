@@ -1,4 +1,4 @@
-<title>Ein Glas zu viel</title>
+<title>Das Tortenmesser</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=Karla:wght@400;500;700&display=swap">
@@ -35,20 +35,17 @@
   }
 
   *{box-sizing:border-box}
-  body{
-    background:var(--ground); color:var(--ink);
-    font-family:var(--body); font-size:16.5px; line-height:1.65; margin:0;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{background:var(--ground); color:var(--ink); font-family:var(--body);
+       font-size:16.5px; line-height:1.65; margin:0; -webkit-font-smoothing:antialiased}
   .wrap{max-width:940px; margin:0 auto; padding:0 24px 100px}
   p{margin:0}
   h1,h2{font-family:var(--display); font-weight:700; margin:0; line-height:1.04; text-wrap:balance}
-  h1{font-size:clamp(44px,9vw,86px); letter-spacing:-0.015em}
+  h1{font-size:clamp(42px,8.4vw,82px); letter-spacing:-0.015em}
   h2{font-size:clamp(26px,4.2vw,38px); letter-spacing:-0.005em}
   h3{font-family:var(--body); font-weight:700; font-size:17px; margin:0; line-height:1.35}
   .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:0.19em; text-transform:uppercase; color:var(--ink-3)}
   .lede{font-size:19px; line-height:1.55; color:var(--ink-2); max-width:63ch}
-  .tc{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12.5px; letter-spacing:0.01em}
+  .tc{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12.5px}
   em{font-style:italic}
 
   header{padding:76px 0 40px; border-bottom:1.5px solid var(--ink); display:flex; flex-direction:column; gap:18px}
@@ -71,29 +68,30 @@
   .cast{min-width:600px}
   .cast td:first-child{font-weight:700; white-space:nowrap}
   .cast .fn{font-size:13.5px; color:var(--ink-2); line-height:1.45}
-  .matrix{min-width:620px}
-  .matrix td{font-family:var(--mono); font-size:13px}
-  .matrix td:first-child,.matrix td:last-child{font-family:var(--body); font-size:15px}
-  .matrix td:first-child{font-weight:700; white-space:nowrap}
-  .yes{color:var(--cold); font-weight:600}
-  .no{color:var(--ink-3)}
-  .hid{color:var(--signal); font-weight:600}
-  tr.taeter td{background:var(--signal-soft)}
-  tr.taeter td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
+  tr.hl td{background:var(--signal-soft)}
+  tr.hl td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
+
+  .frame{min-width:660px}
+  .frame td:first-child{font-weight:700; width:27%}
+  .frame td:nth-child(2){font-size:14.5px; color:var(--ink-2); line-height:1.5}
+  .frame td:last-child{width:27%; font-size:14.5px}
+  .by{font-weight:700; color:var(--signal)}
+  .real{font-weight:700; color:var(--cold)}
 
   .plan{min-width:700px}
-  .plan td:first-child{width:104px}
+  .plan td:first-child{width:100px}
   .plan .tc{color:var(--ink-2); white-space:nowrap}
-  .plan td:last-child{font-size:13.5px; color:var(--ink-2); line-height:1.5; width:32%}
+  .plan td:last-child{font-size:13.5px; color:var(--ink-2); line-height:1.5; width:31%}
   .plan .sc{font-weight:700; display:block; margin-bottom:3px}
   .plan .de{font-size:14.5px; color:var(--ink-2); line-height:1.55}
+  .plan .du{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); display:block; margin-top:2px}
   tr.akt1 td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
   tr.akt2 td:first-child{box-shadow:inset 3px 0 0 var(--cold)}
   tr.tat td{background:var(--signal-soft)}
   tr.tat td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
   tr.msg td{background:var(--surface-2)}
   tr.msg td:first-child{box-shadow:inset 3px 0 0 var(--ink-3)}
-  tr.msg .sc{font-family:var(--mono); font-size:13px; letter-spacing:0.02em}
+  tr.msg .sc{font-family:var(--mono); font-size:13px}
 
   .legend{display:flex; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:10.5px;
           letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-3)}
@@ -106,18 +104,16 @@
   .card{background:var(--surface); padding:18px 20px; display:flex; flex-direction:column; gap:9px}
   .card .tag{font-family:var(--mono); font-size:10px; letter-spacing:0.13em; text-transform:uppercase; color:var(--signal)}
   .card p{font-size:15px; color:var(--ink-2); line-height:1.55}
+  .card .said{font-family:var(--display); font-style:italic; font-size:18px; line-height:1.4; color:var(--ink)}
 
   .msgs{display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule)}
   .msg-row{background:var(--surface); padding:18px 20px; display:grid; grid-template-columns:74px 1fr; gap:18px}
   .msg-row .when{display:flex; flex-direction:column; gap:2px}
   .msg-row .when .n{font-family:var(--display); font-size:26px; font-weight:600; line-height:1; color:var(--cold)}
-  .msg-row .when .t{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:0.02em}
+  .msg-row .when .t{font-family:var(--mono); font-size:11px; color:var(--ink-3)}
   .msg-row .body{display:flex; flex-direction:column; gap:9px}
-  .bubble{
-    font-family:var(--mono); font-size:13.5px; line-height:1.6;
-    background:var(--cold-soft); color:var(--ink); padding:12px 15px;
-    border-left:2px solid var(--cold);
-  }
+  .bubble{font-family:var(--mono); font-size:13.5px; line-height:1.6; background:var(--cold-soft);
+          color:var(--ink); padding:12px 15px; border-left:2px solid var(--cold)}
   .msg-row .eff{font-size:14.5px; color:var(--ink-2); line-height:1.55}
   .msg-row .eff b{color:var(--ink)}
 
@@ -161,10 +157,10 @@
 
 <header>
   <p class="eyebrow">Regiebuch · Darstellendes Spiel · 7 Spieler</p>
-  <h1>Ein Glas<br>zu viel</h1>
-  <p class="sub">Ein Kriminalstück in neuneinhalb Minuten, in dem das Publikum ermittelt.</p>
+  <h1>Das<br>Tortenmesser</h1>
+  <p class="sub">Sieben Minuten, in denen das Publikum einen Unschuldigen verurteilen soll.</p>
   <div class="facts">
-    <div class="fact"><b>9:35</b><span>Spieldauer</span></div>
+    <div class="fact"><b>7:00</b><span>Spieldauer</span></div>
     <div class="fact"><b>7</b><span>Spieler</span></div>
     <div class="fact"><b>4</b><span>Verdächtige</span></div>
     <div class="fact"><b>3</b><span>Nachrichten</span></div>
@@ -177,10 +173,10 @@
     <p class="eyebrow">01 · Der Rahmen</p>
     <h2>Das Publikum ist eingeladen</h2>
   </div>
-  <p class="lede">Die Zuschauer sitzen nicht im Theater. Sie sind Gäste auf dem Firmenjubiläum — und begrüßt werden sie vom Chef persönlich. Hundert Sekunden später ist er tot, und als die Polizei eintrifft, sind sie die einzigen Zeugen, die alles gesehen haben.</p>
-  <p>Daraus folgt alles Weitere: Die Beteiligung muss nicht erklärt werden, weil sie sich aus der Situation ergibt. Und sie bleibt beherrschbar, weil jede Zuschauerantwort in einem Dialog landet, den zwei geübte Spieler auffangen — der Ermittler und die Polizistin.</p>
+  <p class="lede">Die Zuschauer sitzen nicht im Theater. Sie sind Gäste auf dem Firmenjubiläum, begrüßt vom Chef persönlich. Nach zwei Minuten geht für die Torte das Licht aus — und als es wieder angeht, liegt er am Boden.</p>
+  <p>Das ändert die Aufgabe des Publikums grundlegend. Es soll nicht herausfinden, wer es <em>gewesen sein könnte</em>. Es soll merken, dass es gerade dabei ist, den Falschen zu verurteilen.</p>
   <div class="callout">
-    <p><b>Der Umbau läuft über Licht, nicht über Möbel.</b> Goldwarm und Musik für das Fest, harter Blackout für die Tat, kaltes Blau für die Ermittlung. Umgestellt werden nur Gläser und Stühle — und das tun die Figuren <em>in</em> der Szene, während der Ermittler spricht. Ihr braucht keine einzige Umbaupause.</p>
+    <p><b>Sieben Minuten mit drei Minuten Puffer.</b> Der Ablauf unten ist auf exakt 420 Sekunden gerechnet. Der Puffer ist nicht Reserve für längere Szenen, sondern für die Publikumsmomente: Die Frage und die Abstimmung dauern in der Aufführung regelmäßig doppelt so lang wie in der Probe. Wer den Puffer in den Text steckt, hat ihn genau dann nicht, wenn er gebraucht wird.</p>
   </div>
 </section>
 
@@ -189,120 +185,131 @@
     <p class="eyebrow">02 · Besetzung</p>
     <h2>Sieben Rollen</h2>
   </div>
-  <p class="lede">Namen vergebt ihr selbst. Entscheidend ist die Funktion, die jede Rolle im Rätsel erfüllt — die steht fest, sobald ihr sie besetzt.</p>
+  <p class="lede">Namen vergebt ihr selbst. Entscheidend ist die Funktion im Rätsel — die steht fest, sobald ihr besetzt.</p>
   <div class="scroller">
     <table class="cast">
       <thead><tr><th>Rolle</th><th>Funktion im Stück</th><th>Umfang</th></tr></thead>
       <tbody>
-        <tr><td>Der Ermittler</td><td class="fn">Tritt erst nach der Tat auf. Führt die Befragungen und spricht das Publikum direkt an. Trägt den zweiten Akt.</td><td class="fn">Größte Rolle</td></tr>
-        <tr><td>Die Polizistin</td><td class="fn">Kommt mit dem Ermittler. Empfängt auf ihrem Handy drei Nachrichten aus dem Präsidium und gibt sie durch. Nimmt die Aussagen des Publikums auf und zählt die Abstimmung aus. Unverdächtig, weil sie beim Fest nicht dabei war.</td><td class="fn">Zweitgrößte Rolle</td></tr>
-        <tr><td>Der Firmenchef</td><td class="fn">Das Opfer — und der Gastgeber. Begrüßt zu Beginn das Publikum persönlich. Lebt 130 Sekunden und hält die Rede, die alle drei Konflikte gleichzeitig zündet.</td><td class="fn">Kurz, aber zentral</td></tr>
-        <tr><td>Die Ehefrau</td><td class="fn">Verdächtige. Motiv: der Betrug. Scheidet aus, weil sie das Glas nie berührt hat.</td><td class="fn">Hauptrolle</td></tr>
-        <tr><td>Die Schwester</td><td class="fn">Verdächtige. Motiv: die öffentliche Demütigung. Scheidet aus, weil sie zur Tatzeit vor allen am Mikrofon stand.</td><td class="fn">Hauptrolle</td></tr>
-        <tr><td>Die Kellnerin</td><td class="fn">Verdächtige und roter Hering. Hat Zugang zu allem und hinterlässt überall Spuren — weil sie die Kellnerin ist. Ihr fehlt als Einziger das Motiv.</td><td class="fn">Hauptrolle</td></tr>
-        <tr><td>Der Mitarbeiter</td><td class="fn">Verdächtiger. Fasst das Glas offen vor allen Augen an — und wirkt gerade deshalb harmlos, weil niemand einen Grund bei ihm vermutet.</td><td class="fn">Hauptrolle</td></tr>
+        <tr class="hl"><td>Die Schwester</td><td class="fn">Die Täterin. Wurde bei der Nachfolge übergangen, obwohl älter und erfolgreicher. Baut im ersten Akt in aller Öffentlichkeit einen Schuldigen — mit zwei freundlichen Bitten, die niemandem auffallen.</td><td class="fn">Hauptrolle, schwerste Aufgabe</td></tr>
+        <tr><td>Der Ermittler</td><td class="fn">Tritt erst nach der Tat auf. Führt die Befragungen, spricht das Publikum direkt an — und läuft dabei selbst in die Falle, die für ihn gebaut wurde.</td><td class="fn">Größte Rolle</td></tr>
+        <tr><td>Die Polizistin</td><td class="fn">Kommt mit dem Ermittler. Gibt drei Handynachrichten aus dem Präsidium durch, die den Verdacht Schritt für Schritt auf den Mitarbeiter zuspitzen. Nimmt die Aussagen des Publikums auf und zählt die Abstimmung aus.</td><td class="fn">Zweitgrößte Rolle</td></tr>
+        <tr><td>Der Firmenchef</td><td class="fn">Das Opfer — und der Gastgeber. Begrüßt das Publikum persönlich, hält die Rede, die seine Schwester übergeht. Lebt 125 Sekunden.</td><td class="fn">Kurz, aber zentral</td></tr>
+        <tr><td>Der Mitarbeiter</td><td class="fn">Der Geframte. Hat ein echtes Motiv, echte Abdrücke auf der Waffe und stand nachweislich neben dem Opfer. Alles davon stimmt. Nichts davon hat er selbst verschuldet.</td><td class="fn">Hauptrolle</td></tr>
+        <tr><td>Die Ehefrau</td><td class="fn">Verdächtige. Motiv: der Betrug. Sie ist laut, verdächtig und harmlos — und lenkt die erste Minute der Ermittlung in die falsche Richtung.</td><td class="fn">Hauptrolle</td></tr>
+        <tr><td>Die Kellnerin</td><td class="fn">Trägt die Torte mit den Kerzen herein und ist damit die Einzige, die im Dunkeln zu sehen war. Findet den Toten. Ihr Verhältnis zum Mitarbeiter ist sein Motiv.</td><td class="fn">Hauptrolle</td></tr>
       </tbody>
     </table>
-  </div>
-  <div class="callout">
-    <p><b>Warum der Chef jetzt begrüßt:</b> Eine Polizistin kann das Publikum nicht als Gäste willkommen heißen — sie ist beim Fest gar nicht dabei. Der Gastgeber muss es tun, und das ist der Chef. Das löst nicht nur ein logisches Problem: Der Mann, der euch persönlich die Hand schüttelt, ist derselbe, der hundert Sekunden später tot am Boden liegt. Sein Tod trifft dadurch ungleich härter.</p>
   </div>
 </section>
 
 <section>
   <div class="shead">
-    <p class="eyebrow">03 · Lösungsschlüssel</p>
-    <h2>Vier Verdächtige, drei Achsen</h2>
+    <p class="eyebrow">03 · Die neue Logik</p>
+    <h2>Jeder Beweis hat einen Ursprung</h2>
   </div>
-  <p class="lede">Jeder wird an Motiv, Gelegenheit und Spur gemessen. Es gibt genau drei Arten, zwei davon zu erfüllen — also passen exakt drei Unschuldige neben einen Täter, und jeder ist aus einem <em>anderen</em> Grund unschuldig. Keine Statisten, keine Wiederholung.</p>
+  <p class="lede">Die Matrix aus der Vorfassung ist hinfällig. Sie war für einen ehrlichen Fall gebaut — hier sieht der Verdächtige absichtlich nach hundert Prozent Schuld aus, denn genau das ist der Zweck einer gestellten Falle.</p>
+  <p>An ihre Stelle tritt eine Regel, die einfacher zu handhaben ist und dieselbe Fairness herstellt: <b>Jeder Beweis gegen den Geframten muss vor den Augen des Publikums entstanden sein.</b> Die Zuschauer haben zugesehen, wie die Falle gebaut wurde — sie haben es nur für eine Feier gehalten.</p>
   <div class="scroller">
-    <table class="matrix">
-      <thead><tr><th>Verdächtige:r</th><th>Motiv</th><th>Gelegenheit</th><th>Spur</th><th>Warum</th></tr></thead>
+    <table class="frame">
+      <thead><tr><th>Beweis gegen ihn</th><th>Wie er entstand — sichtbar für alle</th><th>Auf wessen Bitte</th></tr></thead>
       <tbody>
-        <tr><td>Die Ehefrau</td><td class="yes">JA</td><td class="yes">JA</td><td class="no">NEIN</td><td>Stand neben dem Tisch, hat das Glas aber nie angefasst</td></tr>
-        <tr><td>Die Schwester</td><td class="yes">JA</td><td class="no">NEIN</td><td class="yes">JA</td><td>Stand die ganze Zeit vor allen am Mikrofon</td></tr>
-        <tr><td>Die Kellnerin</td><td class="no">NEIN</td><td class="yes">JA</td><td class="yes">JA</td><td>Wirkt am schuldigsten — hat als Einzige keinen Grund</td></tr>
-        <tr class="taeter"><td>Der Mitarbeiter</td><td class="hid">VERSTECKT</td><td class="yes">JA</td><td class="yes">JA</td><td>Der Täter. Sein fehlendes Motiv <em>ist</em> seine Verteidigung</td></tr>
+        <tr>
+          <td>Abdrücke auf dem Messer</td>
+          <td>Er schneidet die Torte an. Vor allen, im hellen Licht, mit einem Lachen.</td>
+          <td class="by">Die Schwester</td>
+        </tr>
+        <tr>
+          <td>Er stand neben dem Opfer</td>
+          <td>Sie stellt ihn für ein Foto neben den Chef. <em>„Näher. So ist gut."</em></td>
+          <td class="by">Die Schwester</td>
+        </tr>
+        <tr>
+          <td>Sein Motiv</td>
+          <td>Der Chef bedrängt die Kellnerin, er sieht es und sagt nichts.</td>
+          <td class="real">Niemand — das ist echt</td>
+        </tr>
       </tbody>
     </table>
   </div>
   <div class="callout">
-    <p><b>Der Trick, auf dem das ganze Stück steht:</b> Der Mitarbeiter fasst das Glas offen, vor allen Augen an — er rückt es beiläufig zurecht. Niemand versteckt etwas. Das Publikum sieht es und denkt sich nichts dabei, weil der Mann keinen erkennbaren Grund hat. In der Befragung sagt er genau das: <em>„Ja, ich habe das Glas angefasst. Warum sollte ich ihn umbringen?"</em></p>
-    <p>Was niemand weiß: Er ist der Freund der Kellnerin. Und er hat gesehen, wie der Chef sie bedrängt hat.</p>
+    <p><b>Warum die Falle funktioniert:</b> Sie hat sein Motiv nicht erfunden. Sie hat es <em>benutzt</em>. Zwei Drittel des Beweismaterials sind gestellt, ein Drittel ist echt — und dieses eine echte Drittel macht die anderen beiden glaubwürdig. Wer eine Falle ganz erfindet, wird ertappt. Wer eine wahre Sache einrahmt, nicht.</p>
+    <p>Deshalb ist auch die Frage, die euer Publikum beantworten muss, nicht <em>„Wer war es?"</em> sondern: <b>Woher kommen die Beweise?</b></p>
+  </div>
+  <div class="quote sig">
+    <span class="who">Die Pointe des Stücks</span>
+    <p class="line">Die Täterin hat kein Alibi. Sie braucht keins — sie hat einen Schuldigen.</p>
+    <p class="why">Im Dunkeln konnte jeder alles. Deshalb sucht niemand nach Alibis, sondern nach Spuren. Und Spuren hat sie gelegt, nur nicht ihre eigenen. Das ist der Satz, mit dem der Ermittler die Auflösung eröffnet.</p>
   </div>
 </section>
 
 <section>
   <div class="shead">
     <p class="eyebrow">04 · Die versteckte Zelle</p>
-    <h2>Zwei Fakten, ein Schluss</h2>
+    <h2>Zwei Bitten, ein Schluss</h2>
   </div>
-  <p class="lede">Genau eine Information wird nie ausgesprochen: die Verbindung zwischen dem Mitarbeiter und der Kellnerin. Sie muss aus zwei Momenten erschlossen werden, die weit auseinanderliegen. Beide sind reines Spiel — keine Requisite, kein Licht, kein Text, der sie erklärt.</p>
+  <p class="lede">Die Schwester sagt im ersten Akt zwei Sätze, die niemand als Handlung wahrnimmt. Beide sind auf einer Feier vollkommen normal. Zusammen sind sie der Mord.</p>
   <div class="cards">
     <div class="card">
-      <span class="tag">Fakt A · bei 0:55</span>
-      <h3>Der Blick</h3>
-      <p>Der Mitarbeiter nimmt der Kellnerin im Vorbeigehen das Tablett ab. Ihre Hände berühren sich, sie lächeln. Zwei Sekunden.</p>
-      <p>Unmittelbar danach hält der Chef die Kellnerin am Arm fest, einen Moment zu lang. Der Mitarbeiter sieht es. <b>Er sagt nichts.</b> Das ist der ganze Fall.</p>
+      <span class="tag">Fakt A · bei 1:25</span>
+      <h3>Die Waffe</h3>
+      <p class="said">„Schneid du an. Du bist doch jetzt sein Liebling."</p>
+      <p>Sie drückt dem Mitarbeiter das Tortenmesser in die Hand. Es klingt nach einer Spitze gegen den Chef, nach Selbstironie einer Übergangenen. Alle lachen. <b>Er fasst das Messer an.</b></p>
     </div>
     <div class="card">
-      <span class="tag">Fakt B · bei 6:30</span>
-      <h3>Der Name</h3>
-      <p>In seiner Befragung sagt er über die Kellnerin: <em>„Die Bedienung? Die kenne ich nicht."</em></p>
-      <p>Vier Repliken später korrigiert er den Ermittler beiläufig — und nennt dabei ihren Vornamen. Winzige Pause. Er merkt es selbst. Er redet weiter. <b>Niemand kommentiert es.</b></p>
+      <span class="tag">Fakt B · bei 1:45</span>
+      <h3>Der Ort und das Dunkel</h3>
+      <p class="said">„Stell dich zu ihm, ich mach ein Foto. Näher. — Und jetzt Licht aus für die Torte!"</p>
+      <p>Sie positioniert ihn neben dem Chef, hält das Handy hoch, und im selben Atemzug ruft sie nach der Dunkelheit. <b>Zwei Anordnungen in einem Satz.</b> Niemand hört zweimal hin.</p>
     </div>
   </div>
-  <div class="quote sig">
-    <span class="who">Regel</span>
-    <p class="line">Nach dem Cut bei 7:20 kommt keine neue Information mehr.</p>
-    <p class="why">Beide Fakten liegen vor der Abstimmung. Wer aufgepasst hat, kann es wissen. Das ist der Vertrag mit dem Publikum — und der einzige Fehler, der euch die Zuschauer wirklich verärgert, wäre, ihn zu brechen.</p>
+  <div class="quote cold">
+    <span class="who">Der Schluss, den das Publikum ziehen muss</span>
+    <p class="line">Wer den Schuldigen ans Messer bittet und ihn dann neben das Opfer stellt, hat ihn nicht zufällig gewählt.</p>
+    <p class="why">Ein Schritt, zwei sichtbare Fakten. Mehr verlangt das Stück nicht — und mehr schafft in sieben Minuten auch niemand.</p>
+  </div>
+  <div class="callout">
+    <p><b>Die dritte Bestätigung liefert sie selbst</b>, in ihrer Befragung bei 4:51. Auf die Frage, wo sie stand, sagt sie ruhig: <em>„Hinter der Kamera. Vier Meter weg."</em> Sie hält das für ihr Alibi. Es ist ihr Geständnis — denn wer hinter der Kamera steht, bestimmt, wer davor steht.</p>
   </div>
 </section>
 
 <section>
   <div class="shead">
     <p class="eyebrow">05 · Die Polizistin</p>
-    <h2>Drei Nachrichten, drei Ausschlüsse</h2>
+    <h2>Drei Nachrichten, die den Falschen treffen</h2>
   </div>
-  <p class="lede">Ihr Handy summt dreimal. Jedes Mal derselbe Ablauf: kurzer Ton, das Licht zieht sich einen Schritt zusammen, sie liest vor, das Licht geht zurück. Nach dem zweiten Mal weiß das Publikum, was ein Summen bedeutet — und beugt sich vor.</p>
+  <p class="lede">Ihr Handy summt dreimal. Jede Nachricht zieht die Schlinge enger um den Mitarbeiter — und jede ist sachlich vollkommen korrekt. Das ist der unangenehme Reiz: Die Polizei macht keinen Fehler, sie folgt nur einer Spur, die jemand gelegt hat.</p>
   <div class="msgs">
     <div class="msg-row">
-      <div class="when"><span class="n">1</span><span class="t">4:05</span></div>
+      <div class="when"><span class="n">1</span><span class="t">3:20</span></div>
       <div class="body">
-        <p class="bubble">Spurensicherung. Am Glas des Opfers drei Abdrücke: das Opfer, die Bedienung — und ein dritter, noch nicht zugeordnet. Die Ehefrau ist nicht darunter.</p>
-        <p class="eff"><b>Schließt die Ehefrau aus</b> und setzt zugleich die Frage, die bis 5:55 offen bleibt: Wem gehört der dritte Abdruck?</p>
+        <p class="bubble">Tatwaffe ist das Tortenmesser. Ein Satz Abdrücke darauf, klar und vollständig. Zuordnung läuft.</p>
+        <p class="eff"><b>Die Waffe steht fest.</b> Das Publikum weiß in diesem Moment schon, wessen Abdrücke es sein müssen — und fühlt sich klug dabei.</p>
       </div>
     </div>
     <div class="msg-row">
-      <div class="when"><span class="n">2</span><span class="t">5:00</span></div>
+      <div class="when"><span class="n">2</span><span class="t">3:52</span></div>
       <div class="body">
-        <p class="bubble">Aufzeichnung vom Rednerpult liegt vor. Kamera läuft durch, kein Schnitt. Die Schwester des Opfers steht vier Minuten am Stück im Bild.</p>
-        <p class="eff"><b>Schließt die Schwester aus.</b> Und das Publikum hat es selbst gesehen — sie stand ja wirklich die ganze Zeit am Mikrofon.</p>
+        <p class="bubble">Abdrücke zugeordnet. Sie gehören dem Mitarbeiter. Keine weiteren.</p>
+        <p class="eff"><b>„Keine weiteren"</b> ist das entscheidende Wort und darf nicht betont werden. Die Täterin hatte eine Serviette um den Griff — das sagt niemand, es steht nur zwischen den Zeilen.</p>
       </div>
     </div>
     <div class="msg-row">
-      <div class="when"><span class="n">3</span><span class="t">5:55</span></div>
+      <div class="when"><span class="n">3</span><span class="t">4:39</span></div>
       <div class="body">
-        <p class="bubble">Der dritte Abdruck ist zugeordnet.</p>
-        <p class="eff"><b>Sie nennt keinen Namen.</b> Sie sieht den Ermittler an, er dreht sich zum Mitarbeiter um. Die Falle schnappt zu — und geht ins Leere, weil er sofort und ruhig zugibt, das Glas angefasst zu haben. Genau in diesem Moment hört das Publikum auf, ihn zu verdächtigen.</p>
+        <p class="bubble">Auf dem Handy des Opfers ein Foto. Aufgenommen 21:47 Uhr, acht Sekunden vor dem Notruf. Der Mitarbeiter steht direkt neben ihm.</p>
+        <p class="eff"><b>Die Nachricht sagt, wer auf dem Foto ist — nie, wer es aufgenommen hat.</b> Das ist die wichtigste Auslassung des ganzen Stücks. Das Publikum hat es bei 1:45 gesehen.</p>
       </div>
     </div>
   </div>
   <div class="callout">
-    <p><b>Die eine Regel, die das Stück schützt:</b> Die Polizistin liefert ausschließlich objektive Befunde — Fingerabdrücke, Aufzeichnungen, Zeiten. <b>Niemals ein Motiv, niemals eine Beziehung.</b> Ein einziger Satz wie „Wir haben herausgefunden, dass die beiden ein Paar sind" macht das ganze Rätsel wertlos. Sie schließt aus, sie schließt nie ein — das Einschließen bleibt dem Publikum überlassen.</p>
-    <p>Damit ist die Arbeitsteilung sauber: <b>Die Polizei liefert die drei Ausschlüsse, das Publikum muss die eine Verbindung finden.</b></p>
-  </div>
-  <div class="quote cold">
-    <span class="who">Bühnenlösung</span>
-    <p class="line">Sie liest laut vor, mit Handy in der Hand.</p>
-    <p class="why">Keine Projektion nötig. Ein Vibrationston aus der Anlage, ein enger Lichtwechsel, ihre Stimme — mehr braucht es nicht, und es funktioniert auf jeder Bühne. Falls ihr einen Beamer habt, könnt ihr den Chatverlauf zusätzlich an die Rückwand werfen; nötig ist es nicht.</p>
+    <p><b>Die Regel, die das Stück schützt:</b> Die Polizistin liefert ausschließlich objektive Befunde und <b>niemals eine Deutung.</b> Sie sagt nie „damit ist er überführt" und nie „wir haben ihn". Sie liest vor, was dasteht. Alles Belastende entsteht im Kopf des Publikums — und genau deshalb ärgert es sich am Ende über sich selbst und nicht über euch.</p>
   </div>
 </section>
 
 <section>
   <div class="shead">
     <p class="eyebrow">06 · Ablauf</p>
-    <h2>Neuneinhalb Minuten</h2>
+    <h2>Vierhundertzwanzig Sekunden</h2>
   </div>
   <div class="legend">
     <span><i class="swatch sw-gold"></i>Akt 1 — das Fest, goldwarm</span>
@@ -314,58 +321,64 @@
     <table class="plan">
       <thead><tr><th>Zeit</th><th>Szene</th><th>Licht &amp; Ton</th></tr></thead>
       <tbody>
-        <tr class="akt1"><td class="tc">0:00–0:35</td>
-          <td><span class="sc">Empfang</span><span class="de">Der Chef begrüßt das Publikum als Gäste seines Firmenjubiläums. Er prostet ihm zu, jovial und eine Spur zu laut. Danach ist die Zuschauerrolle gesetzt und wird nie wieder erklärt.</span></td>
-          <td>Saallicht bleibt an. Sektempfangsmusik, gedämpft.</td></tr>
-        <tr class="akt1"><td class="tc">0:35–2:10</td>
-          <td><span class="sc">Das Fest</span><span class="de">95 Sekunden, in denen alle fünf Festfiguren stehen. <b>Fakt A bei 0:55.</b> Bei 1:20 hält der Chef seine Rede und übergeht die Schwester öffentlich — dieser eine Moment zündet alle drei Konflikte gleichzeitig. Sein Glas stellt er dabei auf dem Stehtisch ab und lässt es dort stehen.</span></td>
-          <td>Goldwarm, hell. Musik läuft durch, verstummt zur Rede.</td></tr>
-        <tr class="tat"><td class="tc">2:10–2:30</td>
-          <td><span class="sc">Die Tat</span><span class="de">Anstoßen. Der Chef trinkt. Musik schwillt an, alle bewegen sich, das Bild wird unübersichtlich — und in diesem Gewühl greift jeder einmal in Richtung Tisch.</span></td>
-          <td>Musik laut. <b>Harter Blackout.</b> Ein Glas zerspringt. Stille.</td></tr>
-        <tr class="akt2"><td class="tc">2:30–2:55</td>
-          <td><span class="sc">Umbau</span><span class="de">Im Halbdunkel. Die Figuren räumen selbst: Gläser weg, Stühle in eine Reihe. Choreografiert, kein Stillstand, kein Vorhang.</span></td>
-          <td>Licht kriecht von Gold nach Kaltblau. Tiefer Ton.</td></tr>
-        <tr class="akt2"><td class="tc">2:55–3:25</td>
-          <td><span class="sc">Ermittler und Polizistin</span><span class="de">Beide treten auf. Er wendet sich zuerst ans Publikum, nicht an die Figuren: <em>„Sie waren alle hier. Sie haben alles gesehen — Sie wissen es nur noch nicht."</em> Sie stellt sich als die vor, die die Aussagen aufnimmt. Der Vertrag ist geschlossen.</span></td>
+        <tr class="akt1"><td class="tc">0:00–0:20</td>
+          <td><span class="sc">Empfang</span><span class="de">Der Chef begrüßt das Publikum als Gäste seines Jubiläums. Jovial, eine Spur zu laut. Danach ist die Zuschauerrolle gesetzt und wird nie wieder erklärt.<span class="du">20 s</span></span></td>
+          <td>Saallicht an. Empfangsmusik, gedämpft.</td></tr>
+        <tr class="akt1"><td class="tc">0:20–1:25</td>
+          <td><span class="sc">Das Fest</span><span class="de">65 Sekunden, in denen alle fünf Festfiguren stehen. Die Rede des Chefs übergeht die Schwester öffentlich. Der Chef bedrängt die Kellnerin, der Mitarbeiter sieht es und sagt nichts — sein Motiv, ungestellt und echt.<span class="du">65 s</span></span></td>
+          <td>Goldwarm. Musik verstummt zur Rede.</td></tr>
+        <tr class="akt1"><td class="tc">1:25–1:45</td>
+          <td><span class="sc">Fakt A — der Kuchen</span><span class="de">Die Schwester drückt dem Mitarbeiter das Messer in die Hand. Alle lachen. Er schneidet an.<span class="du">20 s</span></span></td>
+          <td>Unverändert hell. Keine Betonung.</td></tr>
+        <tr class="akt1"><td class="tc">1:45–2:05</td>
+          <td><span class="sc">Fakt B — Foto und Dunkel</span><span class="de">Sie stellt ihn neben den Chef, macht das Foto, ruft nach dem Licht. Die Kellnerin trägt die Torte mit brennenden Kerzen herein.<span class="du">20 s</span></span></td>
+          <td>Licht runter bis auf die Kerzen. Musik: Ständchen.</td></tr>
+        <tr class="tat"><td class="tc">2:05–2:20</td>
+          <td><span class="sc">Die Tat</span><span class="de">Acht Sekunden Dunkelheit. Nur die Kerzen und das Gesicht der Kellnerin dahinter sind zu sehen — sie ist die Einzige, die alle sehen können. Ein Laut. Die Kerzen fallen.<span class="du">15 s</span></span></td>
+          <td><b>Alles aus bis auf die Kerzen.</b> Dann Schwarz. Ein Schrei.</td></tr>
+        <tr class="akt2"><td class="tc">2:20–2:40</td>
+          <td><span class="sc">Umbau</span><span class="de">Im Halbdunkel. Die Figuren räumen selbst: Gläser weg, Stühle in eine Reihe. Choreografiert, kein Vorhang.<span class="du">20 s</span></span></td>
+          <td>Licht kriecht von Gold nach Kaltblau.</td></tr>
+        <tr class="akt2"><td class="tc">2:40–3:00</td>
+          <td><span class="sc">Ermittler und Polizistin</span><span class="de">Auftritt. Er wendet sich zuerst ans Publikum: <em>„Sie waren alle hier. Sie haben alles gesehen — Sie wissen es nur noch nicht."</em><span class="du">20 s</span></span></td>
           <td>Kaltblau steht. Musik aus.</td></tr>
-        <tr class="akt2"><td class="tc">3:25–4:05</td>
-          <td><span class="sc">Befragung 1 — Die Ehefrau</span><span class="de">Das Motiv liegt offen: Sie hat den Flirt gesehen. Sie gibt es zu. Zu offen, um die Täterin zu sein.</span></td>
-          <td>Enger Lichtkegel auf die Befragte, Rest gedimmt.</td></tr>
-        <tr class="msg"><td class="tc">4:05–4:20</td>
-          <td><span class="sc">Nachricht 1</span><span class="de">Die Fingerabdrücke. Die Ehefrau ist raus — und ein dritter Abdruck steht im Raum.</span></td>
+        <tr class="akt2"><td class="tc">3:00–3:20</td>
+          <td><span class="sc">Befragung 1 — Die Ehefrau</span><span class="de">Laut, gekränkt, verdächtig. Sie gibt ihr Motiv sofort zu und lenkt damit die Ermittlung in die falsche Richtung.<span class="du">20 s</span></span></td>
+          <td>Enger Kegel, Rest gedimmt.</td></tr>
+        <tr class="msg"><td class="tc">3:20–3:32</td>
+          <td><span class="sc">Nachricht 1</span><span class="de">Die Tatwaffe ist das Tortenmesser.<span class="du">12 s</span></span></td>
           <td>Vibrationston. Licht zieht sich kurz zusammen.</td></tr>
-        <tr class="akt2"><td class="tc">4:20–5:00</td>
-          <td><span class="sc">Befragung 2 — Die Schwester</span><span class="de">Bitter, präzise, ohne Reue. Sie leugnet ihr Motiv nicht einmal.</span></td>
+        <tr class="akt2"><td class="tc">3:32–3:52</td>
+          <td><span class="sc">Befragung 2 — Die Kellnerin</span><span class="de">Sie hat den Toten gefunden. Und alle haben sie im Kerzenschein gesehen — ihr Alibi hat das Publikum mit eigenen Augen bezeugt.<span class="du">20 s</span></span></td>
           <td>Kegel wandert.</td></tr>
-        <tr class="msg"><td class="tc">5:00–5:15</td>
-          <td><span class="sc">Nachricht 2</span><span class="de">Die Aufzeichnung. Die Schwester ist raus. Zwei bleiben.</span></td>
-          <td>Vibrationston. Gleicher Lichtwechsel wie zuvor.</td></tr>
-        <tr class="akt2"><td class="tc">5:15–5:55</td>
-          <td><span class="sc">Befragung 3 — Die Kellnerin</span><span class="de">Der Verdacht kippt auf sie. Sie hat alles angefasst, sie war überall. Sie wirkt schuldig — und der Ermittler lässt sie schuldig wirken.</span></td>
+        <tr class="msg"><td class="tc">3:52–4:04</td>
+          <td><span class="sc">Nachricht 2</span><span class="de">Die Abdrücke gehören dem Mitarbeiter. Keine weiteren.<span class="du">12 s</span></span></td>
+          <td>Vibrationston. Gleicher Wechsel.</td></tr>
+        <tr class="akt2"><td class="tc">4:04–4:39</td>
+          <td><span class="sc">Befragung 3 — Der Mitarbeiter</span><span class="de">Die längste Befragung. Er gerät unter Druck, und dabei kommt sein echtes Motiv heraus — die Kellnerin. Er wirkt jetzt vollständig schuldig. <b>Hier soll das Publikum ihn verurteilen.</b><span class="du">35 s</span></span></td>
           <td>Kegel eng, Ton härter.</td></tr>
-        <tr class="msg"><td class="tc">5:55–6:10</td>
-          <td><span class="sc">Nachricht 3</span><span class="de">Der dritte Abdruck ist zugeordnet — ohne Namen. Sie sieht den Ermittler an, er dreht sich um.</span></td>
-          <td>Vibrationston. Licht bleibt diesmal eng. Pause.</td></tr>
-        <tr class="akt2"><td class="tc">6:10–6:50</td>
-          <td><span class="sc">Befragung 4 — Der Mitarbeiter</span><span class="de">Er gibt das Glas sofort zu, ruhig, fast gelangweilt — und entwaffnet damit die ganze Szene. <b>Fakt B bei 6:30.</b> Der Ermittler geht nicht darauf ein.</span></td>
-          <td>Kegel, unverändert. Keine Betonung durch Licht.</td></tr>
-        <tr class="akt2"><td class="tc">6:50–7:20</td>
-          <td><span class="sc">Die Frage ans Publikum</span><span class="de"><em>„Was ist Ihnen aufgefallen?"</em> Zwei, höchstens drei Antworten. Die Polizistin nimmt sie auf und wiederholt jede laut — das gibt dem Ermittler Zeit zum Denken.</span></td>
-          <td>Saallicht kommt hoch. Die Zuschauer sind sichtbar.</td></tr>
-        <tr class="akt2"><td class="tc">7:20–7:55</td>
-          <td><span class="sc">Die Abstimmung</span><span class="de">Die vier treten in einer Reihe vor. Handzeichen, Name für Name. Die Polizistin zählt laut aus und notiert. Ab hier keine neue Information.</span></td>
-          <td>Volles Licht auf Bühne und Publikum zugleich.</td></tr>
-        <tr class="akt2"><td class="tc">7:55–9:15</td>
-          <td><span class="sc">Auflösung</span><span class="de">Der Ermittler geht die drei Ausschlüsse durch — zwei davon hat die Polizei geliefert, den dritten das Publikum gesehen. Dann landet er beim Motiv, das keiner gesehen hat, und nennt Fakt A und Fakt B in der Reihenfolge, in der sie zu sehen waren. Der Mitarbeiter widerspricht nicht.</span></td>
-          <td>Licht zieht sich langsam auf zwei Personen zusammen.</td></tr>
-        <tr class="akt2"><td class="tc">9:15–9:35</td>
-          <td><span class="sc">Schlussbild</span><span class="de">Die Kellnerin und der Mitarbeiter sehen sich an. Genau wie bei 0:55 — nur weiß das Publikum jetzt, was der Blick bedeutet.</span></td>
+        <tr class="msg"><td class="tc">4:39–4:51</td>
+          <td><span class="sc">Nachricht 3</span><span class="de">Das Foto, 21:47 Uhr. Er steht direkt neben dem Opfer. Wer es aufgenommen hat, steht nicht da.<span class="du">12 s</span></span></td>
+          <td>Vibrationston. Licht bleibt eng. Pause.</td></tr>
+        <tr class="akt2"><td class="tc">4:51–5:21</td>
+          <td><span class="sc">Befragung 4 — Die Schwester</span><span class="de">Ruhig, fast mitfühlend. <em>„Der Arme. Ich hätte es nie gedacht."</em> Auf die Frage nach ihrem Standort: <em>„Hinter der Kamera. Vier Meter weg."</em> Sie hält das für ihr Alibi.<span class="du">30 s</span></span></td>
+          <td>Weicher, wärmerer Kegel als bei den anderen.</td></tr>
+        <tr class="akt2"><td class="tc">5:21–5:46</td>
+          <td><span class="sc">Die Frage ans Publikum</span><span class="de"><em>„Was ist Ihnen aufgefallen?"</em> Zwei, höchstens drei Antworten. Die Polizistin nimmt auf und wiederholt laut.<span class="du">25 s</span></span></td>
+          <td>Saallicht hoch. Die Zuschauer sind sichtbar.</td></tr>
+        <tr class="akt2"><td class="tc">5:46–6:11</td>
+          <td><span class="sc">Die Abstimmung</span><span class="de">Die vier treten in einer Reihe vor. Handzeichen, Name für Name. Die Polizistin zählt laut aus. Ab hier keine neue Information.<span class="du">25 s</span></span></td>
+          <td>Volles Licht auf Bühne und Publikum.</td></tr>
+        <tr class="akt2"><td class="tc">6:11–6:51</td>
+          <td><span class="sc">Auflösung</span><span class="de">Der Ermittler beginnt mit dem Alibi-Satz, dann geht er die drei Beweise rückwärts durch und fragt bei jedem: <em>Wer hat das so eingerichtet?</em> Zweimal lautet die Antwort gleich. Die Schwester widerspricht nicht.<span class="du">40 s</span></span></td>
+          <td>Licht zieht sich auf zwei Personen zusammen.</td></tr>
+        <tr class="akt2"><td class="tc">6:51–7:00</td>
+          <td><span class="sc">Schlussbild</span><span class="de">Die Schwester nimmt dem Ermittler das Handy aus der Hand und sieht sich das Foto an. Ohne ein Wort.<span class="du">9 s</span></span></td>
           <td>Alles aus bis auf einen Kegel. Blackout.</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="lede">Der elastische Block ist die Publikumsfrage. Plant dreißig Sekunden, probt sie mit sechzig — sie dauert in der Aufführung immer länger als in der Probe.</p>
+  <p class="lede">Die Auflösung ist mit 40 Sekunden der engste Block im Stück. Eine gestellte Falle braucht mehr Erklärung als ein gewöhnlicher Mord — hier müssen drei Beweise wieder auseinandergenommen werden. Probt diesen Block zuerst mit der Uhr.</p>
 </section>
 
 <section>
@@ -373,23 +386,18 @@
     <p class="eyebrow">07 · Absicherung</p>
     <h2>Sätze, die immer passen</h2>
   </div>
-  <p class="lede">Die größte Gefahr ist nicht Textverlust, sondern eine Zuschauerantwort, mit der niemand gerechnet hat. Der Ermittler lernt diese Sätze auswendig. Sie passen auf jede Antwort, auch auf eine falsche, auch auf gar keine — und geben ihm jedes Mal die Führung zurück.</p>
+  <p class="lede">Die größte Gefahr ist eine Zuschauerantwort, mit der niemand gerechnet hat. Der Ermittler lernt diese Sätze auswendig. Sie passen auf jede Antwort, auch auf eine falsche, auch auf gar keine.</p>
   <ul class="saves">
     <li>„Das haben Sie gut gesehen. Es beweist nur nichts."</li>
-    <li>„Interessant. Sagen Sie das, weil Sie es gesehen haben — oder weil Sie es annehmen?"</li>
-    <li>„Genau das sollen Sie denken."<span>Der stärkste Satz. Passt auf jeden Verdacht gegen die Kellnerin.</span></li>
+    <li>„Interessant. Sagen Sie das, weil Sie es gesehen haben — oder weil man es Ihnen gezeigt hat?"<span>Der beste Satz für dieses Stück. Er ist das Thema, als Frage getarnt.</span></li>
+    <li>„Genau das sollen Sie denken."<span>Passt auf jeden Verdacht gegen den Mitarbeiter.</span></li>
     <li>„Halten Sie das fest. Wir kommen darauf zurück."<span>Der Notausgang. Funktioniert immer, kostet zwei Sekunden.</span></li>
     <li>„Niemand? Dann fragen wir anders — wem von den vieren glauben Sie am wenigsten?"<span>Für den Fall, dass das Publikum schweigt.</span></li>
   </ul>
   <div class="quote cold">
     <span class="who">Regieanweisung</span>
     <p class="line">Der Ermittler bestätigt nie eine richtige Antwort.</p>
-    <p class="why">Wenn jemand den Mitarbeiter nennt, darf er nicht nicken. Er antwortet mit demselben Satz wie auf jeden anderen Verdacht. Sonst ist das Stück an dieser Stelle vorbei.</p>
-  </div>
-  <div class="quote">
-    <span class="who">Und die Polizistin</span>
-    <p class="line">„Ich schreibe das mit."</p>
-    <p class="why">Ihr zweiter Notausgang. Sie wiederholt jede Publikumsantwort laut und notiert sie — das wirkt wie Polizeiarbeit, verschafft dem Ermittler drei Sekunden zum Nachdenken und macht auch eine wirre Antwort brauchbar.</p>
+    <p class="why">Nennt jemand die Schwester, darf er nicht nicken. Er antwortet mit demselben Satz wie auf jeden anderen Verdacht. Sonst ist das Stück an dieser Stelle vorbei.</p>
   </div>
 </section>
 
@@ -401,38 +409,37 @@
   <div class="split">
     <div class="a">
       <h3>Liegt fest — wörtlich lernen</h3>
-      <p>Fakt A und Fakt B, die drei Nachrichten der Polizistin, der Vertragssatz des Ermittlers, die Absicherungssätze und die Reihenfolge der Auflösung. An diesen Stellen hängt das Rätsel. Wer hier improvisiert, macht den Fall unlösbar.</p>
+      <p>Fakt A und Fakt B, die drei Nachrichten, der Kamera-Satz der Schwester bei 4:51, der Vertragssatz des Ermittlers, die Absicherungssätze und die Reihenfolge der Auflösung. An diesen Stellen hängt das Rätsel.</p>
     </div>
     <div class="b">
       <h3>Schreibt ihr selbst</h3>
-      <p>Die Begrüßung des Chefs, alle Dialoge des Festes und die vier Befragungen. Jede Befragung ist 40 Sekunden lang — das sind fünf bis sieben Repliken, und sie braucht genau <em>einen</em> Treffer. Mehr passt nicht hinein, und mehr verwirrt.</p>
+      <p>Die Begrüßung des Chefs, seine Rede, alle Dialoge des Festes und die vier Befragungen. Die kurzen Befragungen sind 20 Sekunden — drei bis vier Repliken, ein einziger Treffer. Mehr passt nicht hinein.</p>
     </div>
   </div>
   <ul class="plain">
-    <li><b>Zuerst das Fest schreiben, nicht die Befragungen.</b> Die 95 Sekunden entscheiden, ob die Zuschauer die Figuren kennen, wenn der Chef stirbt. Sind sie schwach, hilft die beste Befragung nichts.</li>
-    <li><b>Fakt A vor allem anderen proben.</b> Zwei Sekunden Spiel, an denen das ganze Rätsel hängt. Sie müssen so beiläufig sein, dass niemand hinschaut — und so klar, dass jeder sie später erinnert.</li>
-    <li><b>Die drei Nachrichten laut und langsam.</b> Sie sind kurz und tragen harte Fakten. Wer sie herunterrattert, verschenkt den Rhythmus, den sie dem ganzen zweiten Akt geben.</li>
-    <li><b>Die Publikumsfrage mit echten Fremden testen.</b> Nicht mit dem Kurs, der die Lösung kennt. Holt drei Leute, die nichts wissen, und probt genau diesen Block.</li>
-    <li><b>Den Chef nicht zu klein schreiben.</b> Er hat nur 130 Sekunden, aber er begrüßt das Publikum persönlich — nutzt das. Wenn er den Zuschauern egal ist, ist der Rest des Stücks eine Rechenaufgabe.</li>
+    <li><b>Fakt A und B müssen beiläufig sein, nicht bedeutungsvoll.</b> Die schwerste schauspielerische Aufgabe des Stücks. Wenn die Schwester bei „Schneid du an" auch nur eine Spur zu lange hält, ist der Fall gelöst, bevor er beginnt. Probt beide Momente zuerst und probt sie oft.</li>
+    <li><b>Der Mitarbeiter darf sich nicht gut verteidigen.</b> Er ist unschuldig und wirkt trotzdem schuldig — weil er nervös wird, ausweicht und sein Motiv zu spät zugibt. Genau so verhalten sich Unschuldige unter Druck, und genau darauf fällt das Publikum herein.</li>
+    <li><b>Die Kerzen sind Technik, kein Effekt.</b> Sie sind die einzige Lichtquelle in den acht Sekunden und machen die Kellnerin sichtbar — das ist ihr Alibi. Klärt Kerzen oder LED-Kerzen früh mit eurer Lehrkraft ab; falls offenes Feuer nicht erlaubt ist, tut es eine Wunderkerzen-Attrappe oder eine kleine Lichterkette in der Torte.</li>
+    <li><b>Kein Bühnenblut.</b> Der Mord passiert im Dunkeln. Wenn das Licht angeht, liegt der Chef, das Messer liegt daneben — das genügt und ist auf einer Schulbühne die klügere Lösung.</li>
+    <li><b>Die Publikumsfrage mit echten Fremden testen.</b> Nicht mit dem Kurs, der die Lösung kennt.</li>
   </ul>
 </section>
 
 <section>
   <div class="shead">
     <p class="eyebrow">09 · Offen</p>
-    <h2>Was ihr noch entscheiden könnt</h2>
+    <h2>Was noch zu entscheiden ist</h2>
   </div>
   <ul class="plain">
-    <li><b>Der Täter ist der Mitarbeiter.</b> Nehmt ihr stattdessen die Schwester, muss ihr Alibi kippen — sie hätte die Tat dann vorbereitet, nicht ausgeführt. Das ist der anspruchsvollere, aber stärkere Stoff.</li>
-    <li><b>Der Chef stirbt an einem vergifteten Glas.</b> Bühnentauglich, kein Blut, und es rückt die Kellnerin ins Zentrum. Ein Sturz im Nebenraum wäre einfacher, macht die Spurenlage aber deutlich schwächer — und die drei Nachrichten hätten dann wenig zu melden.</li>
-    <li><b>Die Kellnerin geht auf den Flirt ein und bereut es.</b> Damit hat sie kein Mordmotiv und bleibt der perfekte rote Hering. Wenn der Chef sie stattdessen bedrängt, bekommt sie ein starkes eigenes Motiv — dann braucht die Matrix eine andere dritte Achse, und ich baue sie euch um.</li>
-    <li><b>Die Nachrichten kommen aus dem Präsidium.</b> Alternativ könnten sie von einer Kollegin im Nebenraum stammen, die noch am Tatort arbeitet — dann wirkt die Ermittlung enger und dringlicher, aber ihr müsst erklären, warum sie nicht selbst auftritt.</li>
-    <li><b>Der Titel ist ein Platzhalter.</b> „Ein Glas zu viel" beschreibt die Tat — ein besserer Titel würde die Frage stellen, die das Publikum beantworten soll.</li>
+    <li><b>Der Titel.</b> „Ein Glas zu viel" ist mit dem vergifteten Glas weggefallen. „Das Tortenmesser" ist ein Arbeitstitel — ein besserer würde die Frage stellen, die das Publikum beantworten soll, statt die Waffe zu nennen.</li>
+    <li><b>Weiß die Schwester von der Kellnerin und dem Mitarbeiter?</b> Ich gehe davon aus, dass sie es weiß — deshalb wählt sie ihn. Wenn sie es nicht weiß, ist die Falle Zufall statt Plan, und die Figur verliert ihre Kälte. Ein einziger Blick von ihr im ersten Akt genügt, um es zu zeigen.</li>
+    <li><b>Gesteht sie am Ende?</b> Im Ablauf widerspricht sie nur nicht. Ein ausgesprochenes Geständnis wäre eindeutiger, kostet aber Sekunden und nimmt dem Schlussbild die Schärfe.</li>
+    <li><b>Namen der Figuren</b> — bewusst offen gelassen, die vergebt ihr.</li>
   </ul>
 </section>
 
 <footer>
-  <p>Alle Zeitangaben sind Probenrichtwerte, keine Sollzeiten. Erst die zweite Durchlaufprobe zeigt, welcher Block tatsächlich zu lang ist — erfahrungsgemäß das Fest und die Publikumsfrage.</p>
+  <p>Alle Zeitangaben sind Probenrichtwerte. Der Ablauf ist auf exakt 420 Sekunden gerechnet; die drei Minuten Puffer gehören den Publikumsmomenten und der Auflösung, nicht dem Text.</p>
 </footer>
 
 </div>

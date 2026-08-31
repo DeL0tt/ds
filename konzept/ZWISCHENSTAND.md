@@ -42,18 +42,33 @@ gesetzt — jeder einzeln austauschbar:
 
 - **Täter:** der Mitarbeiter. Sein Motiv ist die versteckte Matrix-Zelle,
   weil niemand seine Verbindung zur Kellnerin kennt.
-- **Siebte Rolle:** der Assistent des Chefs, der das Event moderiert und
-  das Publikum als Gäste begrüßt. Übernimmt die weggefallene
-  Watson-Funktion als Publikumsbrücke.
+- **Siebte Rolle:** eine Polizistin (ersetzt den zuvor geplanten
+  Assistenten). Sie kommt mit dem Ermittler, empfängt drei
+  Handynachrichten aus dem Präsidium und gibt sie durch. Übernimmt die
+  Publikumsbrücke: nimmt Zuschaueraussagen auf und zählt die Abstimmung
+  aus. Die Begrüßung des Publikums übernimmt jetzt der Chef selbst — eine
+  Polizistin kann keine Gäste auf einem Fest empfangen, bei dem sie nicht
+  dabei ist.
 - **Tathergang:** vergiftetes Glas beim Sektempfang. Kein Blut,
   bühnentauglich, rückt die Kellnerin ins Zentrum.
 - **Kellnerin/Chef:** sie geht auf den Flirt ein und bereut es. Damit hat
   sie kein Mordmotiv und bleibt der rote Hering.
 
+### Die drei Nachrichten
+
+Jede Nachricht schließt genau einen Verdächtigen aus: Fingerabdrücke
+(Ehefrau raus), Videoaufzeichnung (Schwester raus), Zuordnung des dritten
+Abdrucks (ohne Namen — als Falle, die ins Leere geht).
+
+**Schutzregel:** Die Polizistin liefert ausschließlich objektive Befunde,
+niemals ein Motiv und niemals eine Beziehung. Sie schließt aus, sie
+schließt nie ein. Ein Satz wie „die beiden sind ein Paar" würde das
+gesamte Rätsel wertlos machen.
+
 ### Zeitbudget gelöst
 
-Befragungen auf 45 Sekunden verdichtet (4 × 45 s = 180 s), Fest bekommt
-100 Sekunden. Gesamt 9:30.
+Befragungen auf 40 Sekunden verdichtet (4 × 40 s), drei Nachrichten à
+15 s, Fest 95 s. Gesamt 9:35.
 
 ## Weiterhin offen
 

@@ -1,81 +1,88 @@
-# Zwischenstand — Bühnenfassung (Darstellendes Spiel)
+# Faktenstand — Bühnenkrimi (Darstellendes Spiel)
 
-Stand der Absprachen. Achtung: Das Format hat sich vom Video-Konzept
-(`7-minuten-krimi.html`) zu einem Bühnenstück gewandelt. Wo sich beides
-widerspricht, gilt dieses Dokument.
+Enthält ausschließlich, was der Kurs gesagt oder ausgewählt hat. Alles
+Übrige steht als offen markiert. Das Konzeptdokument dazu:
+[`regiebuch.html`](regiebuch.html).
 
-## Festgelegt
+Frühere, ausgearbeitete Fassungen (Zeitplan, Szenenablauf, Dialoge,
+Regieanweisungen) liegen im Git-Verlauf und lassen sich zurückholen.
 
-| Punkt | Entscheidung |
+## Bestätigt — Rahmen
+
+- Fach Darstellendes Spiel, Schulaufführung
+- 7 Spieler; jeder spielt entweder eine Hauptrolle oder 1–2 Nebenrollen
+- Kleine Bühne, wenige Zuschauer; die Zuschauer werden sehr stark eingebunden
+- 1–2 Umbauten, nicht mehr
+- Geplant wird mit 7 Minuten, Obergrenze 10 Minuten (3 Minuten Puffer)
+- Technik vorhanden: Licht farbig, dimmbar, schaltbar, Blackout;
+  Tonanlage mit Musik
+
+## Bestätigt — Publikumsbeteiligung
+
+- Eine Abstimmung
+- Leichte Fragestellungen an die Zuschauer, was sie denken
+- Festes Ende, keine Alternativfassungen
+
+## Bestätigt — Stoff
+
+- Modernes Unternehmen, Firmenevent, alle Figuren anwesend
+- Intrigen innerhalb der Firma, mehrere Stränge gemischt
+- Der Firmenchef wird ermordet
+- Der Mord passiert, wenn es dunkel ist
+- Sherlock ermittelt und kommt erst später dazu; Watson gestrichen
+- 4 Verdächtige, das Event fällt dafür kürzer aus
+- Die Schwester ist die Täterin
+- Sie framet den Mitarbeiter
+
+## Bestätigt — Figuren
+
+Namen noch nicht vergeben.
+
+| Rolle | Was feststeht |
 | --- | --- |
-| Form | Bühnenstück, kleine Bühne, wenige Zuschauer |
-| Dauer | exakt 7:00 geplant, Limit 10 Minuten (3 Min. Puffer) |
-| Spieler | 7 |
-| Setting | Modernes Firmenevent |
-| Publikum | Ist Gast des Firmenevents — dadurch als Zeuge befragbar |
-| Beteiligung | Abstimmung am Ende + 2–3 leichte Fragen („Was denken Sie?") |
-| Ausgang | Festes Ende, keine Alternativfassungen |
-| Ermittler | Sherlock, tritt erst nach der Tat auf. Watson gestrichen. |
-| Opfer | Der Firmenchef |
-| Verdächtige | 4 — Ehefrau, Schwester, Kellnerin, Mitarbeiter |
-| Intrige | Mehrere Stränge gemischt |
-| Technik | Farbiges + dimmbares Licht, Blackout, Tonanlage — alles vorhanden |
-| Umbau | Läuft über Licht und Ton, keine echte Umbaupause nötig |
+| Der Firmenchef | Das Opfer. Flirtet mit der Kellnerin und betrügt damit seine Frau. |
+| Die Ehefrau | Arbeitet ebenfalls in der Firma. |
+| Die Schwester | Schwester des Chefs, in der Firma. Neidisch auf die Bossposition, will sie haben. Hat den Job nicht bekommen, obwohl älter und erfolgreicher — weil sie eine Frau ist. **Die Täterin.** |
+| Die Kellnerin | Der Chef geht mit ihr fremd. |
+| Der Mitarbeiter | Freund der Kellnerin, hegt deswegen Groll gegen den Chef. **Wird geframet.** |
+| Sherlock | Ermittler, tritt erst nach der Tat auf. |
+| Die Polizistin | Gibt zwischendurch Informationen durch, wie Handychats. |
 
-## Figuren (von den Schülern entwickelt)
+## Vorschlag — vom Kurs als Beispiel genannt
 
-1. **Der Firmenchef** — das Opfer
-2. **Die Ehefrau** — arbeitet ebenfalls in der Firma
-3. **Die Schwester des Chefs** — in der Firma; wollte die Chefposition und wurde
-   übergangen, obwohl älter und erfolgreicher, weil sie eine Frau ist
-4. **Die Kellnerin** — der Chef flirtet mit ihr und betrügt die Ehefrau
-5. **Der Mitarbeiter** — Freund der Kellnerin, hegt deswegen Groll gegen den Chef
-6. **Sherlock**
-7. *offen*
+- Die Schwester bittet den Mitarbeiter, den Kuchen anzuschneiden; dadurch
+  sind seine Fingerabdrücke auf einer möglichen Tatwaffe. Ob es so
+  gespielt wird und ob das Messer die Tatwaffe ist, steht nicht fest.
 
-Verdächtige sind damit: Ehefrau, Schwester, Kellnerin, Mitarbeiter.
+## Offen
 
-## Fassung 2 — Frame-up (aktuell)
+**Der Fall**
+- Was ist die Tatwaffe?
+- Wie kommt die Dunkelheit zustande, wie lange dauert sie?
+- Wie genau baut die Schwester das Framing auf?
+- Woran soll das Publikum erkennen, dass geframet wurde — welcher
+  Hinweis, wann?
+- Alibis von Ehefrau und Kellnerin?
+- Weiß die Schwester von Kellnerin und Mitarbeiter?
+- Kellnerin freiwillig oder bedrängt?
+- Wird die Schwester überführt? Gesteht sie?
 
-Siehe `regiebuch.html`. Der Fall wurde auf Wunsch der Gruppe umgebaut:
+**Die Polizistin**
+- Wie viele Nachrichten, wann, mit welchem Inhalt?
+- Woher bekommt sie die Informationen?
+- Wie werden sie auf der Bühne gezeigt?
 
-- **Täterin:** die Schwester. Sie framet den Mitarbeiter.
-- **Spieldauer:** exakt 7:00 (420 s), damit 3 Minuten Puffer bleiben.
-- **Mord:** im Dunkeln, Tatwaffe ist das Tortenmesser.
-- **Die Falle:** Die Schwester bittet den Mitarbeiter, die Torte
-  anzuschneiden (Abdrücke auf der Waffe), stellt ihn dann für ein Foto
-  neben den Chef und ruft im selben Atemzug nach dem Licht-aus. Zwei
-  Bitten, auf einer Feier vollkommen normal.
-- **Sein Motiv ist echt**, nicht gestellt — das macht die Falle
-  glaubwürdig. Zwei Drittel arrangiert, ein Drittel wahr.
-- **Ihr Alibi:** keins. Sie braucht keins, sie hat einen Schuldigen.
+**Aufbau und Inszenierung**
+- Aufteilung der sieben Minuten
+- Wo liegen die Umbauten, was wird umgebaut?
+- Wie wird das Publikum eingeführt?
+- Wo und wie oft wird gefragt, wann wird abgestimmt?
+- Wie viel wird vom Mord gezeigt?
 
-### Die Matrix ist ersetzt
-
-Die Zwei-von-Drei-Matrix galt für einen ehrlichen Whodunit. Bei einem
-Frame-up sieht der Geframte absichtlich nach 3/3 aus. Neue Fairness-Regel:
-
-> **Jeder Beweis gegen den Geframten muss vor den Augen des Publikums
-> entstanden sein.**
-
-Die Frage lautet damit nicht mehr „Wer war es?", sondern „Woher kommen
-die Beweise?".
-
-### Die drei Nachrichten
-
-Ziehen die Schlinge um den Mitarbeiter und sind alle sachlich korrekt:
-Tatwaffe Tortenmesser → Abdrücke gehören ihm, keine weiteren → Foto um
-21:47 Uhr, er steht neben dem Opfer. **Die dritte nennt nie, wer das Foto
-aufgenommen hat.** Das ist die wichtigste Auslassung des Stücks.
-
-Schutzregel: Die Polizistin liefert nur Befunde, niemals eine Deutung.
-
-## Weiterhin offen
-
-- Namen der Figuren (bewusst offen gelassen — vergeben die Schüler)
-- Titel des Stücks („Das Tortenmesser" ist ein Arbeitstitel)
-- Weiß die Schwester von der Kellnerin und dem Mitarbeiter? (Annahme: ja —
-  deshalb wählt sie ihn)
-- Gesteht die Schwester am Ende, oder widerspricht sie nur nicht?
-- Praktisch: Probenzeit, Klassenstufe, Zuschauerzahl, Bewertungskriterien
-  der Lehrkraft, Geschlechterverteilung der sieben Spieler
+**Produktion**
+- Titel des Stücks
+- Namen aller Figuren
+- Zuschauerzahl, Klassenstufe, Probenzeit
+- Bewertungskriterien der Lehrkraft
+- Rollenverteilung, Geschlechtertausch möglich?
+- Mehrfachaufführung?

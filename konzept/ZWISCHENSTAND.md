@@ -35,19 +35,29 @@ widerspricht, gilt dieses Dokument.
 
 Verdächtige sind damit: Ehefrau, Schwester, Kellnerin, Mitarbeiter.
 
-## Offen
+## Inzwischen entschieden (im Regiebuch ausgearbeitet)
 
-- Wer ist der Täter?
-- Was ist die siebte Rolle?
-- Wie stirbt der Chef? (bestimmt die Spur-Achse der Matrix)
-- Verhältnis Kellnerin/Chef: freiwillig, bedrängt oder bewusst offen gelassen?
-- Praktisch: Probenzeit, Klassenstufe, Zuschauerzahl, Bewertungskriterien der
-  Lehrkraft, Geschlechterverteilung der sieben Spieler
+Siehe `regiebuch.html`. Diese vier Punkte waren offen und sind jetzt
+gesetzt — jeder einzeln austauschbar:
 
-## Offener Konflikt im Zeitbudget
+- **Täter:** der Mitarbeiter. Sein Motiv ist die versteckte Matrix-Zelle,
+  weil niemand seine Verbindung zur Kellnerin kennt.
+- **Siebte Rolle:** der Assistent des Chefs, der das Event moderiert und
+  das Publikum als Gäste begrüßt. Übernimmt die weggefallene
+  Watson-Funktion als Publikumsbrücke.
+- **Tathergang:** vergiftetes Glas beim Sektempfang. Kein Blut,
+  bühnentauglich, rückt die Kellnerin ins Zentrum.
+- **Kellnerin/Chef:** sie geht auf den Flirt ein und bereut es. Damit hat
+  sie kein Mordmotiv und bleibt der rote Hering.
 
-4 Verdächtige in 10 Minuten sind eng. Bei 4 Befragungen à ~60 Sekunden
-schrumpft das Firmenevent auf rund 90 Sekunden — das Publikum kennt die
-Figuren dann kaum, wenn der Chef stirbt. Entweder das Event bekommt mehr
-Zeit (dann 3 Verdächtige) oder die Befragungen werden auf ~45 Sekunden
-verdichtet. Zu entscheiden, bevor geschrieben wird.
+### Zeitbudget gelöst
+
+Befragungen auf 45 Sekunden verdichtet (4 × 45 s = 180 s), Fest bekommt
+100 Sekunden. Gesamt 9:30.
+
+## Weiterhin offen
+
+- Namen der Figuren (bewusst offen gelassen — vergeben die Schüler)
+- Titel des Stücks („Ein Glas zu viel" ist ein Platzhalter)
+- Praktisch: Probenzeit, Klassenstufe, Zuschauerzahl, Bewertungskriterien
+  der Lehrkraft, Geschlechterverteilung der sieben Spieler

@@ -1,0 +1,413 @@
+<title>Ein Glas zu viel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=Karla:wght@400;500;700&display=swap">
+
+<style>
+  :root{
+    --ground:#F7F6F3; --surface:#FFFFFF; --surface-2:#F1EFEA;
+    --ink:#1A1A17; --ink-2:#55544D; --ink-3:#8A887F;
+    --rule:#DFDCD4; --rule-strong:#C2BEB3;
+    --gold:#8A5D10; --gold-soft:#F4EBD9;
+    --cold:#255878; --cold-soft:#E1EBF2;
+    --signal:#9E2A20; --signal-soft:#F6E3E0;
+    --display:"Bodoni Moda","Didot",Georgia,serif;
+    --body:"Karla","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#131311; --surface:#1B1B18; --surface-2:#22221E;
+      --ink:#EEEBE4; --ink-2:#9C988D; --ink-3:#6F6C64;
+      --rule:#2D2C27; --rule-strong:#413F38;
+      --gold:#D9A441; --gold-soft:#2A2113;
+      --cold:#7FB2D6; --cold-soft:#152430;
+      --signal:#E0776D; --signal-soft:#2E1815;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#131311; --surface:#1B1B18; --surface-2:#22221E;
+    --ink:#EEEBE4; --ink-2:#9C988D; --ink-3:#6F6C64;
+    --rule:#2D2C27; --rule-strong:#413F38;
+    --gold:#D9A441; --gold-soft:#2A2113;
+    --cold:#7FB2D6; --cold-soft:#152430;
+    --signal:#E0776D; --signal-soft:#2E1815;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--body); font-size:16.5px; line-height:1.65; margin:0;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding:0 24px 100px}
+  p{margin:0}
+  h1,h2{font-family:var(--display); font-weight:700; margin:0; line-height:1.04; text-wrap:balance}
+  h1{font-size:clamp(44px,9vw,86px); letter-spacing:-0.015em}
+  h2{font-size:clamp(26px,4.2vw,38px); letter-spacing:-0.005em}
+  h3{font-family:var(--body); font-weight:700; font-size:17px; margin:0; line-height:1.35}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:0.19em; text-transform:uppercase; color:var(--ink-3)}
+  .lede{font-size:19px; line-height:1.55; color:var(--ink-2); max-width:63ch}
+  .tc{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12.5px; letter-spacing:0.01em}
+  em{font-style:italic}
+
+  header{padding:76px 0 40px; border-bottom:1.5px solid var(--ink); display:flex; flex-direction:column; gap:18px}
+  .sub{font-family:var(--display); font-style:italic; font-size:21px; color:var(--ink-2)}
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:12px}
+  .fact{background:var(--surface); padding:13px 15px; display:flex; flex-direction:column; gap:1px}
+  .fact b{font-family:var(--display); font-size:30px; font-weight:600; line-height:1}
+  .fact span{font-family:var(--mono); font-size:10px; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-3)}
+
+  section{padding:54px 0; border-bottom:1px solid var(--rule); display:flex; flex-direction:column; gap:22px}
+  section:last-of-type{border-bottom:none}
+  .shead{display:flex; flex-direction:column; gap:7px}
+
+  .scroller{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+  table{border-collapse:collapse; width:100%; font-size:15px}
+  th,td{padding:12px 15px; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
+  thead th{font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.13em; text-transform:uppercase;
+           color:var(--ink-3); background:var(--surface-2); border-bottom:1px solid var(--rule-strong)}
+  tbody tr:last-child td{border-bottom:none}
+  .cast{min-width:600px}
+  .cast td:first-child{font-weight:700; white-space:nowrap}
+  .cast .fn{font-size:13.5px; color:var(--ink-2); line-height:1.45}
+  .matrix{min-width:620px}
+  .matrix td{font-family:var(--mono); font-size:13px}
+  .matrix td:first-child,.matrix td:last-child{font-family:var(--body); font-size:15px}
+  .matrix td:first-child{font-weight:700; white-space:nowrap}
+  .yes{color:var(--cold); font-weight:600}
+  .no{color:var(--ink-3)}
+  .hid{color:var(--signal); font-weight:600}
+  tr.taeter td{background:var(--signal-soft)}
+  tr.taeter td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
+
+  .plan{min-width:680px}
+  .plan td:first-child{width:104px}
+  .plan .tc{color:var(--ink-2); white-space:nowrap}
+  .plan td:last-child{font-size:13.5px; color:var(--ink-2); line-height:1.5; width:34%}
+  .plan .sc{font-weight:700; display:block; margin-bottom:3px}
+  .plan .de{font-size:14.5px; color:var(--ink-2); line-height:1.55}
+  tr.akt1 td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
+  tr.akt2 td:first-child{box-shadow:inset 3px 0 0 var(--cold)}
+  tr.tat td{background:var(--signal-soft)}
+  tr.tat td:first-child{box-shadow:inset 3px 0 0 var(--signal)}
+
+  .legend{display:flex; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:10.5px;
+          letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-3)}
+  .legend span{display:flex; align-items:center; gap:7px}
+  .swatch{width:11px; height:11px; display:inline-block}
+  .sw-gold{background:var(--gold)} .sw-cold{background:var(--cold)} .sw-sig{background:var(--signal)}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule)}
+  .card{background:var(--surface); padding:18px 20px; display:flex; flex-direction:column; gap:9px}
+  .card .tag{font-family:var(--mono); font-size:10px; letter-spacing:0.13em; text-transform:uppercase; color:var(--signal)}
+  .card p{font-size:15px; color:var(--ink-2); line-height:1.55}
+
+  .quote{
+    border-left:3px solid var(--gold); background:var(--surface); padding:15px 20px;
+    display:flex; flex-direction:column; gap:5px;
+  }
+  .quote .who{font-family:var(--mono); font-size:10.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-3)}
+  .quote .line{font-family:var(--display); font-style:italic; font-size:19px; line-height:1.4}
+  .quote .why{font-size:14px; color:var(--ink-2); line-height:1.5}
+  .quote.cold{border-left-color:var(--cold)}
+  .quote.sig{border-left-color:var(--signal)}
+
+  ul.plain{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+  ul.plain li{background:var(--surface); padding:14px 18px; font-size:15.5px; color:var(--ink-2); line-height:1.55}
+  ul.plain li b{color:var(--ink); font-weight:700}
+  ul.saves{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
+  ul.saves li{
+    font-family:var(--display); font-style:italic; font-size:17.5px; line-height:1.45;
+    padding-left:20px; border-left:2px solid var(--rule-strong); color:var(--ink);
+  }
+  ul.saves li span{
+    display:block; font-family:var(--body); font-style:normal; font-size:13.5px;
+    color:var(--ink-3); margin-top:2px;
+  }
+
+  .callout{border-left:3px solid var(--signal); background:var(--surface); padding:17px 21px; display:flex; flex-direction:column; gap:7px}
+  .callout p{font-size:15.5px; color:var(--ink-2); line-height:1.6}
+  .callout b{color:var(--ink)}
+
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+  .split > div{background:var(--surface); padding:17px 20px; display:flex; flex-direction:column; gap:8px}
+  .split h3{font-family:var(--mono); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; font-weight:500}
+  .split .a h3{color:var(--cold)} .split .b h3{color:var(--gold)}
+  .split p{font-size:15px; color:var(--ink-2); line-height:1.55}
+
+  footer{padding:38px 0 0; border-top:1px solid var(--rule); color:var(--ink-3); font-size:14px; line-height:1.6}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .split{grid-template-columns:1fr}
+  }
+  :focus-visible{outline:2px solid var(--signal); outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Regiebuch · Darstellendes Spiel · 7 Spieler</p>
+  <h1>Ein Glas<br>zu viel</h1>
+  <p class="sub">Ein Kriminalstück in neuneinhalb Minuten, in dem das Publikum ermittelt.</p>
+  <div class="facts">
+    <div class="fact"><b>9:30</b><span>Spieldauer</span></div>
+    <div class="fact"><b>7</b><span>Spieler</span></div>
+    <div class="fact"><b>4</b><span>Verdächtige</span></div>
+    <div class="fact"><b>1</b><span>Umbau</span></div>
+    <div class="fact"><b>3</b><span>Publikumsmomente</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">01 · Der Rahmen</p>
+    <h2>Das Publikum ist eingeladen</h2>
+  </div>
+  <p class="lede">Die Zuschauer sitzen nicht im Theater. Sie sind Gäste auf dem Firmenjubiläum — begrüßt, angestoßen, mitgezählt. Zwei Minuten später ist der Chef tot, und als der Ermittler eintrifft, sind sie die einzigen Zeugen, die alles gesehen haben.</p>
+  <p>Daraus folgt alles Weitere: Die Beteiligung muss nicht erklärt werden, weil sie sich aus der Situation ergibt. Und sie bleibt beherrschbar, weil jede Zuschauerantwort in einem Dialog landet, den zwei geübte Spieler auffangen.</p>
+  <div class="callout">
+    <p><b>Der Umbau läuft über Licht, nicht über Möbel.</b> Goldwarm und Musik für das Fest, harter Blackout für die Tat, kaltes Blau für die Ermittlung. Umgestellt werden nur Gläser und Stühle — und das tun die Figuren <em>in</em> der Szene, während der Ermittler spricht. Ihr braucht keine einzige Umbaupause.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">02 · Besetzung</p>
+    <h2>Sieben Rollen</h2>
+  </div>
+  <p class="lede">Namen vergebt ihr selbst. Entscheidend ist die Funktion, die jede Rolle im Rätsel erfüllt — die steht fest, sobald ihr sie besetzt.</p>
+  <div class="scroller">
+    <table class="cast">
+      <thead><tr><th>Rolle</th><th>Funktion im Stück</th><th>Umfang</th></tr></thead>
+      <tbody>
+        <tr><td>Der Ermittler</td><td class="fn">Tritt erst nach der Tat auf. Führt die Befragungen und spricht das Publikum direkt an. Trägt den zweiten Akt.</td><td class="fn">Größte Rolle</td></tr>
+        <tr><td>Der Assistent</td><td class="fn">Moderiert das Firmenevent und begrüßt das Publikum als Gäste. Nach der Tat der Gesprächspartner des Ermittlers. Unverdächtig, weil durchgehend am Mikrofon sichtbar.</td><td class="fn">Zweitgrößte Rolle</td></tr>
+        <tr><td>Der Firmenchef</td><td class="fn">Das Opfer. Lebt 130 Sekunden — lang genug, damit sein Tod das Publikum trifft. Hält die Rede, die alle drei Konflikte gleichzeitig zündet.</td><td class="fn">Kurz, aber zentral</td></tr>
+        <tr><td>Die Ehefrau</td><td class="fn">Verdächtige. Motiv: der Betrug. Scheidet aus, weil sie das Glas nie berührt hat.</td><td class="fn">Hauptrolle</td></tr>
+        <tr><td>Die Schwester</td><td class="fn">Verdächtige. Motiv: die öffentliche Demütigung. Scheidet aus, weil sie zur Tatzeit vor allen am Mikrofon stand.</td><td class="fn">Hauptrolle</td></tr>
+        <tr><td>Die Kellnerin</td><td class="fn">Verdächtige und roter Hering. Hat Zugang zu allem und hinterlässt überall Spuren — weil sie die Kellnerin ist. Ihr fehlt als Einziger das Motiv.</td><td class="fn">Hauptrolle</td></tr>
+        <tr><td>Der Mitarbeiter</td><td class="fn">Verdächtiger. Fasst das Glas offen vor allen Augen an — und wirkt gerade deshalb harmlos, weil niemand einen Grund bei ihm vermutet.</td><td class="fn">Hauptrolle</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">03 · Lösungsschlüssel</p>
+    <h2>Vier Verdächtige, drei Achsen</h2>
+  </div>
+  <p class="lede">Jeder wird an Motiv, Gelegenheit und Spur gemessen. Es gibt genau drei Arten, zwei davon zu erfüllen — also passen exakt drei Unschuldige neben einen Täter, und jeder ist aus einem <em>anderen</em> Grund unschuldig. Keine Statisten, keine Wiederholung.</p>
+  <div class="scroller">
+    <table class="matrix">
+      <thead><tr><th>Verdächtige:r</th><th>Motiv</th><th>Gelegenheit</th><th>Spur</th><th>Warum</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Die Ehefrau</td>
+          <td class="yes">JA</td><td class="yes">JA</td><td class="no">NEIN</td>
+          <td>Stand neben dem Tisch, hat das Glas aber nie angefasst</td>
+        </tr>
+        <tr>
+          <td>Die Schwester</td>
+          <td class="yes">JA</td><td class="no">NEIN</td><td class="yes">JA</td>
+          <td>Stand die ganze Zeit vor allen am Mikrofon</td>
+        </tr>
+        <tr>
+          <td>Die Kellnerin</td>
+          <td class="no">NEIN</td><td class="yes">JA</td><td class="yes">JA</td>
+          <td>Wirkt am schuldigsten — hat als Einzige keinen Grund</td>
+        </tr>
+        <tr class="taeter">
+          <td>Der Mitarbeiter</td>
+          <td class="hid">VERSTECKT</td><td class="yes">JA</td><td class="yes">JA</td>
+          <td>Der Täter. Sein fehlendes Motiv <em>ist</em> seine Verteidigung</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <p><b>Der Trick, auf dem das ganze Stück steht:</b> Der Mitarbeiter fasst das Glas offen, vor allen Augen an — er rückt es beiläufig zurecht. Niemand versteckt etwas. Das Publikum sieht es und denkt sich nichts dabei, weil der Mann keinen erkennbaren Grund hat. In der Befragung sagt er genau das: <em>„Ja, ich habe das Glas angefasst. Warum sollte ich ihn umbringen?"</em></p>
+    <p>Was niemand weiß: Er ist der Freund der Kellnerin. Und er hat gesehen, wie der Chef sie bedrängt hat.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">04 · Die versteckte Zelle</p>
+    <h2>Zwei Fakten, ein Schluss</h2>
+  </div>
+  <p class="lede">Genau eine Information wird nie ausgesprochen: die Verbindung zwischen dem Mitarbeiter und der Kellnerin. Sie muss aus zwei Momenten erschlossen werden, die weit auseinanderliegen. Beide sind reines Spiel — keine Requisite, kein Licht, kein Text, der sie erklärt.</p>
+  <div class="cards">
+    <div class="card">
+      <span class="tag">Fakt A · bei 0:50</span>
+      <h3>Der Blick</h3>
+      <p>Der Mitarbeiter nimmt der Kellnerin im Vorbeigehen das Tablett ab. Ihre Hände berühren sich, sie lächeln. Zwei Sekunden.</p>
+      <p>Unmittelbar danach hält der Chef die Kellnerin am Arm fest, einen Moment zu lang. Der Mitarbeiter sieht es. <b>Er sagt nichts.</b> Das ist der ganze Fall.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Fakt B · bei 6:05</span>
+      <h3>Der Name</h3>
+      <p>In seiner Befragung sagt er über die Kellnerin: <em>„Die Bedienung? Die kenne ich nicht."</em></p>
+      <p>Vier Repliken später korrigiert er den Ermittler beiläufig — und nennt dabei ihren Vornamen. Winzige Pause. Er merkt es selbst. Er redet weiter. <b>Niemand kommentiert es.</b></p>
+    </div>
+  </div>
+  <div class="quote sig">
+    <span class="who">Regel</span>
+    <p class="line">Nach dem Cut bei 7:05 kommt keine neue Information mehr.</p>
+    <p class="why">Beide Fakten liegen vor der Abstimmung. Wer aufgepasst hat, kann es wissen. Das ist der Vertrag mit dem Publikum — und der einzige Fehler, der euch die Zuschauer wirklich verärgert, wäre, ihn zu brechen.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">05 · Ablauf</p>
+    <h2>Neuneinhalb Minuten</h2>
+  </div>
+  <div class="legend">
+    <span><i class="swatch sw-gold"></i>Akt 1 — das Fest, goldwarm</span>
+    <span><i class="swatch sw-cold"></i>Akt 2 — die Ermittlung, kaltblau</span>
+    <span><i class="swatch sw-sig"></i>Die Tat</span>
+  </div>
+  <div class="scroller">
+    <table class="plan">
+      <thead><tr><th>Zeit</th><th>Szene</th><th>Licht &amp; Ton</th></tr></thead>
+      <tbody>
+        <tr class="akt1">
+          <td class="tc">0:00–0:30</td>
+          <td><span class="sc">Empfang</span><span class="de">Der Assistent begrüßt das Publikum als Gäste des Firmenjubiläums. Prostet ihm zu. Danach ist die Zuschauerrolle gesetzt und wird nie wieder erklärt.</span></td>
+          <td>Saallicht bleibt an. Sektempfangsmusik, gedämpft.</td>
+        </tr>
+        <tr class="akt1">
+          <td class="tc">0:30–2:10</td>
+          <td><span class="sc">Das Fest</span><span class="de">100 Sekunden, in denen alle sechs Figuren stehen. <b>Fakt A bei 0:50.</b> Bei 1:20 hält der Chef seine Rede und übergeht die Schwester öffentlich — dieser eine Moment zündet alle drei Konflikte gleichzeitig. Sein Glas stellt er dabei auf dem Stehtisch ab und lässt es dort stehen.</span></td>
+          <td>Goldwarm, hell. Musik läuft durch, verstummt zur Rede.</td>
+        </tr>
+        <tr class="tat">
+          <td class="tc">2:10–2:30</td>
+          <td><span class="sc">Die Tat</span><span class="de">Anstoßen. Der Chef trinkt. Musik schwillt an, alle bewegen sich, das Bild wird unübersichtlich — und in diesem Gewühl greift jeder einmal in Richtung Tisch.</span></td>
+          <td>Musik laut. <b>Harter Blackout.</b> Ein Glas zerspringt. Stille.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">2:30–3:00</td>
+          <td><span class="sc">Umbau</span><span class="de">Im Halbdunkel. Die Figuren räumen selbst: Gläser weg, Stühle in eine Reihe. Choreografiert, kein Stillstand, kein Vorhang.</span></td>
+          <td>Licht kriecht von Gold nach Kaltblau. Tiefer Ton.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">3:00–3:35</td>
+          <td><span class="sc">Der Ermittler</span><span class="de">Auftritt. Er wendet sich zuerst ans Publikum, nicht an die Figuren: <em>„Sie waren alle hier. Sie haben alles gesehen — Sie wissen es nur noch nicht."</em> Der Vertrag ist geschlossen.</span></td>
+          <td>Kaltblau steht. Musik aus.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">3:35–4:20</td>
+          <td><span class="sc">Befragung 1 — Die Ehefrau</span><span class="de">Das Motiv liegt offen: Sie hat den Flirt gesehen. Sie gibt es zu. Zu offen, um die Täterin zu sein.</span></td>
+          <td>Enger Lichtkegel auf die Befragte, Rest gedimmt.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">4:20–5:05</td>
+          <td><span class="sc">Befragung 2 — Die Schwester</span><span class="de">Bitter, präzise, ohne Reue. Ihr Alibi ist unangreifbar und das Publikum hat es selbst gesehen: Sie stand am Mikrofon.</span></td>
+          <td>Kegel wandert.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">5:05–5:50</td>
+          <td><span class="sc">Befragung 3 — Die Kellnerin</span><span class="de">Der Verdacht kippt auf sie. Sie hat alles angefasst, sie war überall. Sie wirkt schuldig — und der Ermittler lässt sie schuldig wirken.</span></td>
+          <td>Kegel eng, Ton härter.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">5:50–6:35</td>
+          <td><span class="sc">Befragung 4 — Der Mitarbeiter</span><span class="de">Er ist ruhig, fast gelangweilt. Gibt das Glas zu, weil es harmlos ist. <b>Fakt B bei 6:05.</b> Der Ermittler geht nicht darauf ein.</span></td>
+          <td>Kegel, unverändert. Keine Betonung durch Licht.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">6:35–7:05</td>
+          <td><span class="sc">Die Frage ans Publikum</span><span class="de"><em>„Was ist Ihnen aufgefallen?"</em> Zwei, höchstens drei Antworten. Der Assistent notiert mit und wiederholt jede laut — das gibt dem Ermittler Zeit zum Denken.</span></td>
+          <td>Saallicht kommt hoch. Die Zuschauer sind sichtbar.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">7:05–7:40</td>
+          <td><span class="sc">Die Abstimmung</span><span class="de">Die vier treten in einer Reihe vor. Handzeichen, Name für Name. Der Assistent zählt laut aus. Ab hier keine neue Information.</span></td>
+          <td>Volles Licht auf Bühne und Publikum zugleich.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">7:40–9:10</td>
+          <td><span class="sc">Auflösung</span><span class="de">Der Ermittler geht die drei Ausschlüsse durch — Ehefrau, Schwester, Kellnerin — und landet beim Motiv, das keiner gesehen hat. Er nennt Fakt A und Fakt B in der Reihenfolge, in der sie zu sehen waren. Der Mitarbeiter widerspricht nicht.</span></td>
+          <td>Licht zieht sich langsam auf zwei Personen zusammen.</td>
+        </tr>
+        <tr class="akt2">
+          <td class="tc">9:10–9:30</td>
+          <td><span class="sc">Schlussbild</span><span class="de">Die Kellnerin und der Mitarbeiter sehen sich an. Genau wie bei 0:50 — nur weiß das Publikum jetzt, was der Blick bedeutet.</span></td>
+          <td>Alles aus bis auf einen Kegel. Blackout.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lede">Der elastische Block ist die Publikumsfrage. Plant dreißig Sekunden, probt sie mit sechzig — sie dauert in der Aufführung immer länger als in der Probe.</p>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">06 · Absicherung</p>
+    <h2>Sätze, die immer passen</h2>
+  </div>
+  <p class="lede">Die größte Gefahr ist nicht Textverlust, sondern eine Zuschauerantwort, mit der niemand gerechnet hat. Der Ermittler lernt diese Sätze auswendig. Sie passen auf jede Antwort, auch auf eine falsche, auch auf gar keine — und geben ihm jedes Mal die Führung zurück.</p>
+  <ul class="saves">
+    <li>„Das haben Sie gut gesehen. Es beweist nur nichts."</li>
+    <li>„Interessant. Sagen Sie das, weil Sie es gesehen haben — oder weil Sie es annehmen?"</li>
+    <li>„Genau das sollen Sie denken."<span>Der stärkste Satz. Passt auf jeden Verdacht gegen die Kellnerin.</span></li>
+    <li>„Halten Sie das fest. Wir kommen darauf zurück."<span>Der Notausgang. Funktioniert immer, kostet zwei Sekunden.</span></li>
+    <li>„Niemand? Dann fragen wir anders — wem von den vieren glauben Sie am wenigsten?"<span>Für den Fall, dass das Publikum schweigt.</span></li>
+  </ul>
+  <div class="quote cold">
+    <span class="who">Regieanweisung</span>
+    <p class="line">Der Ermittler bestätigt nie eine richtige Antwort.</p>
+    <p class="why">Wenn jemand den Mitarbeiter nennt, darf er nicht nicken. Er antwortet mit demselben Satz wie auf jeden anderen Verdacht. Sonst ist das Stück an dieser Stelle vorbei.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">07 · Arbeitsteilung</p>
+    <h2>Was jetzt geschrieben wird</h2>
+  </div>
+  <div class="split">
+    <div class="a">
+      <h3>Liegt fest — wörtlich lernen</h3>
+      <p>Fakt A und Fakt B, die Begrüßung des Publikums, der Vertragssatz des Ermittlers, die Absicherungssätze und die Reihenfolge der Auflösung. An diesen Stellen hängt das Rätsel. Wer hier improvisiert, macht den Fall unlösbar.</p>
+    </div>
+    <div class="b">
+      <h3>Schreibt ihr selbst</h3>
+      <p>Alle Dialoge des Festes und die vier Befragungen. Jede Befragung ist 45 Sekunden lang — das sind sechs bis acht Repliken, und sie braucht genau <em>einen</em> Treffer. Mehr passt nicht hinein, und mehr verwirrt.</p>
+    </div>
+  </div>
+  <ul class="plain">
+    <li><b>Zuerst das Fest schreiben, nicht die Befragungen.</b> Die hundert Sekunden entscheiden, ob die Zuschauer die Figuren kennen, wenn der Chef stirbt. Sind sie schwach, hilft die beste Befragung nichts.</li>
+    <li><b>Fakt A vor allem anderen proben.</b> Zwei Sekunden Spiel, an denen das ganze Rätsel hängt. Sie müssen so beiläufig sein, dass niemand hinschaut — und so klar, dass jeder sie später erinnert.</li>
+    <li><b>Die Publikumsfrage mit echten Fremden testen.</b> Nicht mit dem Kurs, der die Lösung kennt. Holt drei Leute, die nichts wissen, und probt genau diesen Block.</li>
+    <li><b>Den Chef nicht zu klein schreiben.</b> Er hat nur 130 Sekunden, aber wenn er dem Publikum egal ist, ist der Rest des Stücks eine Rechenaufgabe.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="shead">
+    <p class="eyebrow">08 · Offen</p>
+    <h2>Was ihr noch entscheiden könnt</h2>
+  </div>
+  <p class="lede">Vier Punkte habe ich entschieden, damit ihr etwas Konkretes vor euch habt. Jeder lässt sich einzeln austauschen — hier steht, was daran hängt.</p>
+  <ul class="plain">
+    <li><b>Der Täter ist der Mitarbeiter.</b> Nehmt ihr stattdessen die Schwester, muss ihr Alibi kippen — sie hätte die Tat dann vorbereitet, nicht ausgeführt. Das ist der anspruchsvollere, aber stärkere Stoff.</li>
+    <li><b>Die siebte Rolle ist der Assistent.</b> Er ersetzt die weggefallene Watson-Funktion. Streicht ihr ihn, steht der Ermittler bei den Publikumsmomenten allein — dann braucht ihr eine andere Lösung dafür.</li>
+    <li><b>Der Chef stirbt an einem vergifteten Glas.</b> Bühnentauglich, kein Blut, und es rückt die Kellnerin ins Zentrum. Ein Sturz im Nebenraum wäre einfacher, macht die Spurenlage aber deutlich schwächer.</li>
+    <li><b>Die Kellnerin geht auf den Flirt ein und bereut es.</b> Damit hat sie kein Mordmotiv und bleibt der perfekte rote Hering. Wenn der Chef sie stattdessen bedrängt, bekommt sie ein starkes eigenes Motiv — dann braucht die Matrix eine andere dritte Achse, und ich baue sie euch um.</li>
+  </ul>
+  <div class="callout">
+    <p><b>Der Titel ist ein Platzhalter.</b> „Ein Glas zu viel" beschreibt die Tat — ein besserer Titel würde die Frage stellen, die das Publikum beantworten soll.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Alle Zeitangaben sind Probenrichtwerte, keine Sollzeiten. Erst die zweite Durchlaufprobe zeigt, welcher Block tatsächlich zu lang ist — erfahrungsgemäß das Fest und die Publikumsfrage.</p>
+</footer>
+
+</div>
